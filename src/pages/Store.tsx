@@ -1,4 +1,4 @@
-import storeItems from '../data/items.json';
+import storeItems from '../data/items';
 import { formatCurrency } from '../utilities/formatCurrency';
 import { useShoppingCart } from '../context/ShoppingCartContext';
 import QuantityButtons from '../components/QuantityButtons';
@@ -6,7 +6,7 @@ import QuantityButtons from '../components/QuantityButtons';
 export default function Store() {
   return (
     <div>
-      <h1>Store</h1>
+      <h1 className="text-center text-5xl font-bold">Store</h1>
       <div className="grid gap-4 p-4 grid-cols-1 sm:grid-cols-2 xl:grid-cols-3">
         {storeItems.map((item) => (
           <StoreItem key={item.id} {...item} />

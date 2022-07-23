@@ -1,3 +1,83 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .nav-li {
+    @apply text-xl;
+  }
+
+  .translate-x-screen {
+    transform: translate(100vw);
+  }
+  .-translate-x-screen {
+    transform: translate(-100vw);
+  }
+
+  .hamburger-menu-btn {
+    width: 32px;
+    height: 30px;
+    position: relative;
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+    -webkit-transition: 0.5s ease-in-out;
+    -moz-transition: 0.5s ease-in-out;
+    -o-transition: 0.5s ease-in-out;
+    transition: 0.5s ease-in-out;
+    cursor: pointer;
+  }
+
+  .hamburger-menu-btn span {
+    display: block;
+    position: absolute;
+    height: 6px;
+    width: 100%;
+    background: #d3531a;
+    border-radius: 5px;
+    opacity: 1;
+    left: 0;
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+    -webkit-transition: 0.25s ease-in-out;
+    -moz-transition: 0.25s ease-in-out;
+    -o-transition: 0.25s ease-in-out;
+    transition: 0.25s ease-in-out;
+  }
+
+  .hamburger-menu-btn span:nth-child(1) {
+    top: 0px;
+  }
+
+  .hamburger-menu-btn span:nth-child(2) {
+    top: 12px;
+  }
+
+  .hamburger-menu-btn span:nth-child(3) {
+    top: 24px;
+  }
+
+  .open.hamburger-menu-btn span:nth-child(1) {
+    top: 12px;
+    -webkit-transform: rotate(135deg);
+    -moz-transform: rotate(135deg);
+    -o-transform: rotate(135deg);
+    transform: rotate(135deg);
+  }
+
+  .open.hamburger-menu-btn span:nth-child(2) {
+    opacity: 0;
+    left: -60px;
+  }
+
+  .open.hamburger-menu-btn span:nth-child(3) {
+    top: 12px;
+    -webkit-transform: rotate(-135deg);
+    -moz-transform: rotate(-135deg);
+    -o-transform: rotate(-135deg);
+    transform: rotate(-135deg);
+  }
+}

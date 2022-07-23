@@ -1,4 +1,4 @@
-import storeItems from '../data/items.json';
+import storeItems from '../data/items';
 import { useShoppingCart } from '../context/ShoppingCartContext';
 import { formatCurrency } from '../utilities/formatCurrency';
 import QuantityButtons from '../components/QuantityButtons';
