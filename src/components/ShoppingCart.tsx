@@ -1,17 +1,27 @@
 import storeItems from '../data/items.json';
-import { useShoppingCart } from '../context/ShoppingCartProvider';
+import { useShoppingCart } from '../context/ShoppingCartContext';
 import { formatCurrency } from '../utilities/formatCurrency';
 import QuantityButtons from '../components/QuantityButtons';
 
 export default function ShoppingCart() {
-  const { isOpen, cartItems, closeCart } = useShoppingCart();
+  const { isOpen, cartItems, closeCart, clearCart } = useShoppingCart();
+
+  const total = cartItems.reduce((total, item) => {
+    const price = storeItems.find((i) => i.id === item.id)?.price;
+    if (price === undefined) return total;
+
+    return total + price * item.quantity;
+  }, 0);
+
   return !isOpen ? null : (
     <div className="flex flex-col">
       <button onClick={closeCart}>Close</button>
+      <button onClick={clearCart}>Clear Cart</button>
       <h2>Shopping Cart</h2>
       {cartItems.map((item) => (
         <CartItem key={item.id} {...item} />
       ))}
+      <div>Total: {formatCurrency(total)}</div>
     </div>
   );
 }

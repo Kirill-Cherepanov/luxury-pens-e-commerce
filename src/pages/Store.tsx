@@ -1,7 +1,6 @@
-import React from 'react';
 import storeItems from '../data/items.json';
 import { formatCurrency } from '../utilities/formatCurrency';
-import { useShoppingCart } from '../context/ShoppingCartProvider';
+import { useShoppingCart } from '../context/ShoppingCartContext';
 import QuantityButtons from '../components/QuantityButtons';
 
 export default function Store() {
