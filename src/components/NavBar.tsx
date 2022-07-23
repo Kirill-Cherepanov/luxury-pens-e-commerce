@@ -9,7 +9,7 @@ export default function NavBar() {
 
   return (
     <header className="flex justify-between sticky top-0 bg-slate-400">
-      <div className={'MOBILE-MENU flex items-center p-2 h-12 lg:hidden'}>
+      <div className={'MOBILE-MENU flex items-center p-2 h-12 md:hidden'}>
         <button
           className={'hamburger-menu-btn' + (isHamburgerOpen ? ' open' : '')}
           onClick={toggleHamburger}
@@ -21,7 +21,7 @@ export default function NavBar() {
         <ul
           className={
             (!isHamburgerOpen ? '-translate-x-screen' : '') +
-            ' absolute top-12 left-0 p-4 transition-transform flex flex-col gap-4 bg-slate-400 w-screen'
+            ' absolute top-12 left-0 p-4 transition-transform flex flex-col gap-4 bg-slate-400 w-full'
           }
         >
           <li className="nav-li">
@@ -35,7 +35,7 @@ export default function NavBar() {
           </li>
         </ul>
       </div>
-      <ul className="DESKTOP-MENU hidden lg:flex">
+      <ul className="DESKTOP-MENU hidden md:flex">
         <li className="nav-li">
           <NavLink to="/">Home</NavLink>
         </li>
