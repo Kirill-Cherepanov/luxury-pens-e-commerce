@@ -1,4 +1,10 @@
-import { createContext, useContext, ReactNode, useState } from 'react';
+import {
+  createContext,
+  useContext,
+  ReactNode,
+  useState,
+  useCallback
+} from 'react';
 import ShoppingCart from '../components/ShoppingCart';
 import { useLocalStorage } from '../hooks/useLocalStorage';
 
@@ -9,6 +15,7 @@ type CartItem = {
 
 type ShoppingCartContext = {
   isCartOpen: boolean;
+  toggleIsRemoveOnZero: () => void;
   openCart: () => void;
   closeCart: () => void;
   clearCart: () => void;
@@ -37,20 +44,35 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
     []
   );
   const [isCartOpen, setIsCartOpen] = useState(false);
+  const [isRemoveOnZero, setIsRemoveOnZero] = useState(true);
+
+  const toggleIsRemoveOnZero = useCallback(() => {
+    setCartItems((cartItems) => {
+      return cartItems.filter((item) => item.quantity > 0);
+    });
+    setIsRemoveOnZero((isRemoveOnZero) => !isRemoveOnZero);
+  }, [setCartItems]);
 
   const cartItemsQuantity = cartItems.reduce(
     (quantity, item) => item.quantity + quantity,
     0
   );
 
-  const openCart = () => setIsCartOpen(true);
-
-  const closeCart = () => {
+  const openCart = () => {
     setCartItems((cartItems) => {
       return cartItems.filter((item) => item.quantity > 0);
     });
-    setIsCartOpen(false);
+    setIsRemoveOnZero(false);
+    setIsCartOpen(true);
   };
+
+  const closeCart = useCallback(() => {
+    setCartItems((cartItems) => {
+      return cartItems.filter((item) => item.quantity > 0);
+    });
+    setIsRemoveOnZero(true);
+    setIsCartOpen(false);
+  }, [setCartItems]);
 
   const clearCart = () => {
     setCartItems([]);
@@ -75,7 +97,7 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
   const decreaseItemQuantity = (id: number) => {
     setCartItems((cartItems) => {
       if (
-        !isCartOpen &&
+        isRemoveOnZero &&
         cartItems.find((item) => item.id === id)?.quantity === 1
       ) {
         return cartItems.filter((item) => item.id !== id);
@@ -98,6 +120,7 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
     <ShoppingCartContext.Provider
       value={{
         isCartOpen,
+        toggleIsRemoveOnZero,
         openCart,
         closeCart,
         clearCart,

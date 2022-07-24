@@ -1,8 +1,9 @@
 import { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import { useShoppingCart } from '../context/ShoppingCartContext';
 
 export default function NavBar() {
+  let { pathname } = useLocation();
   const [isHamburgerOpen, setIsHamburgerOpen] = useState(false);
   const { openCart, cartItemsQuantity } = useShoppingCart();
   const toggleHamburger = () => setIsHamburgerOpen((isOpen) => !isOpen);
@@ -33,9 +34,11 @@ export default function NavBar() {
           <li className="nav-li">
             <NavLink to="/About">About</NavLink>
           </li>
-          <li className="nav-li">
-            <NavLink to="/Basket">Checkout</NavLink>
-          </li>
+          {pathname === '/Basket' || cartItemsQuantity === 0 ? null : (
+            <li className="nav-li">
+              <NavLink to="/Basket">Checkout</NavLink>
+            </li>
+          )}
         </ul>
       </div>
       <ul className="DESKTOP-MENU hidden md:flex">
@@ -48,16 +51,20 @@ export default function NavBar() {
         <li className="nav-li">
           <NavLink to="/About">About</NavLink>
         </li>
-        <li className="nav-li">
-          <NavLink to="/Basket">Checkout</NavLink>
-        </li>
-      </ul>
-      <button onClick={openCart} className="rounded-full">
-        Cart
-        {cartItemsQuantity === 0 ? null : (
-          <div className="rounded-full">{cartItemsQuantity}</div>
+        {pathname === '/Basket' || cartItemsQuantity === 0 ? null : (
+          <li className="nav-li">
+            <NavLink to="/Basket">Checkout</NavLink>
+          </li>
         )}
-      </button>
+      </ul>
+      {pathname === '/Basket' ? null : (
+        <button onClick={openCart} className="rounded-full">
+          Cart
+          {cartItemsQuantity === 0 ? null : (
+            <div className="rounded-full">{cartItemsQuantity}</div>
+          )}
+        </button>
+      )}
     </header>
   );
 }

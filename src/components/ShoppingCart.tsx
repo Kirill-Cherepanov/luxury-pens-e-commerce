@@ -24,25 +24,36 @@ export default function ShoppingCart() {
         (isCartOpen ? ' p-2 h-auto opacity-100' : ' h-0 opacity-0 ')
       }
     >
-      <div className="flex">
-        <button onClick={clearCart}>Clear</button>
-        <button onClick={closeCart} className="w-4 h-4 ml-auto">
-          <img src={closeIcon} width="16" height="16" alt="" />
-        </button>
-      </div>
-      <h2 className="text-lg font-bold text-center">Shopping Cart</h2>
-      <div className="overflow-y-scroll h-100">
-        {cartItems.map((item) => (
-          <CartItem key={item.id} {...item} />
-        ))}
-      </div>
-      <div className="flex justify-between">
-        <span>
-          Total Amount:<small className="block">(shipping included)</small>
-        </span>
-        {formatCurrency(total)}
-      </div>
-      <NavLink to="/Basket">Checkout</NavLink>
+      {cartItems.length === 0 ? (
+        <>
+          <button onClick={closeCart} className="w-4 h-4 ml-auto">
+            <img src={closeIcon} width="16" height="16" alt="" />
+          </button>
+          <p>Your cart is empty</p>
+        </>
+      ) : (
+        <>
+          <div className="flex">
+            <button onClick={clearCart}>Clear</button>
+            <button onClick={closeCart} className="w-4 h-4 ml-auto">
+              <img src={closeIcon} width="16" height="16" alt="" />
+            </button>
+          </div>
+          <h2 className="text-lg font-bold text-center">Shopping Cart</h2>
+          <div className="overflow-y-scroll h-100">
+            {cartItems.map((item) => (
+              <CartItem key={item.id} {...item} />
+            ))}
+          </div>
+          <div className="flex justify-between">
+            <span>
+              Total Amount:<small className="block">(shipping included)</small>
+            </span>
+            {formatCurrency(total)}
+          </div>
+          <NavLink to="/Basket">Checkout</NavLink>
+        </>
+      )}
     </div>
   );
 }

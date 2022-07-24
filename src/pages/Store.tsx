@@ -36,7 +36,7 @@ function StoreItem({ id, name, price, desc, paths }: StoreItemProps) {
   return (
     <li className="bg-white rounded-md shadow-sm">
       <img
-        src={paths[1]}
+        src={paths[0]}
         alt={name}
         className="rounded-t-md h-48 w-full object-cover transition-transform duration-300 hover:scale-110"
         onClick={openPreview}
