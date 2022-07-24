@@ -51,7 +51,7 @@ export default function Basket() {
             accepted afterward.
           </p>
         </div>
-        <div className="ORDER-SUMMARY w-full bg-slate-200 ml-auto mr-6 max-w-md md:mr-8 lg:mr-0">
+        <div className="ORDER-SUMMARY w-full overflow-hidden bg-slate-200 ml-auto mr-6 max-w-md md:mr-8 shadow-lg sm:rounded-md lg:mr-0">
           <div className="px-6 lg:max-w-5xl lg:mx-auto py-8">
             <h3 className="text-lg font-bold mb-4">Order summary</h3>
             <div className="flex justify-between">
@@ -118,7 +118,7 @@ function BasketItem({ id, className }: BaksetItemProps) {
   if (item === undefined) return null;
 
   return (
-    <div className={'flex flex-col ' + className}>
+    <li className={'flex flex-col shadow-md p-4 rounded-md ' + className}>
       <button onClick={() => removeItem(id)} className="ml-auto mb-4">
         <img src={closeIcon} width="16" height="16" alt="" />
       </button>
@@ -136,7 +136,7 @@ function BasketItem({ id, className }: BaksetItemProps) {
         </div>
         <div className="hidden md:flex flex-col justify-start ml-auto ">
           {formatCurrency(item.price)}
-          <ItemButtons id={item.id} className="inline-flex" />
+          <ItemButtons id={item.id} className="" />
         </div>
       </div>
       <div className="flex md:hidden justify-between">
@@ -146,6 +146,6 @@ function BasketItem({ id, className }: BaksetItemProps) {
       {isPreviewOpen && (
         <StoreItemPreview closeMenu={() => setIsPreviewOpen(false)} {...item} />
       )}
-    </div>
+    </li>
   );
 }

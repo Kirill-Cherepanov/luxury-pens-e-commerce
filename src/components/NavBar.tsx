@@ -9,7 +9,7 @@ export default function NavBar() {
   const toggleHamburger = () => setIsHamburgerOpen((isOpen) => !isOpen);
 
   return (
-    <header className="flex z-10 justify-between sticky top-0 bg-slate-400">
+    <header className="flex z-10 shadow-xl justify-between sticky top-0 bg-slate-400">
       <div className={'MOBILE-MENU flex items-center p-2 h-12 md:hidden'}>
         <button
           className={'hamburger-menu-btn' + (isHamburgerOpen ? ' open' : '')}
