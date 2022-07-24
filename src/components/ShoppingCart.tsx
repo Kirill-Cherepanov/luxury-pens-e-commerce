@@ -1,8 +1,8 @@
 import storeItems from '../data/items';
 import { useShoppingCart } from '../context/ShoppingCartContext';
 import { formatCurrency } from '../utilities/formatCurrency';
-import QuantityButtons from '../components/QuantityButtons';
-import closeIcon from '../images/icons/close.svg';
+import ItemButtons from './ItemButtons';
+import closeIcon from '../icons/close.svg';
 
 export default function ShoppingCart() {
   const { isOpen, cartItems, closeCart, clearCart } = useShoppingCart();
@@ -56,14 +56,14 @@ function CartItem({ id, quantity }: CartItemProps) {
   return (
     <div className="flex flex-col border-b-1 border-b-slate-800 mb-2">
       <img
-        src={item.imgUrl}
+        src={item.paths[0]}
         alt={item.name}
         className="h-20 w-full object-cover"
       />
       <div>{item.name}</div>
       <div className="flex justify-between">
         <button onClick={() => removeItem(item.id)}>Remove</button>
-        {<QuantityButtons id={item.id} className="inline-flex" />}{' '}
+        {<ItemButtons id={item.id} className="inline-flex" />}{' '}
         {formatCurrency(item.price)}
       </div>
     </div>
