@@ -5,6 +5,7 @@ import ItemButtons from './ItemButtons';
 import closeIcon from '../icons/close.svg';
 import { useState } from 'react';
 import StoreItemPreview from './StoreItemPreview';
+import { NavLink } from 'react-router-dom';
 
 export default function ShoppingCart() {
   const { isCartOpen, cartItems, closeCart, clearCart } = useShoppingCart();
@@ -41,6 +42,7 @@ export default function ShoppingCart() {
         </span>
         {formatCurrency(total)}
       </div>
+      <NavLink to="/Basket">Checkout</NavLink>
     </div>
   );
 }

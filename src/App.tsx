@@ -4,6 +4,7 @@ import Store from './pages/Store';
 import About from './pages/About';
 import NavBar from './components/NavBar';
 import { ShoppingCartProvider } from './context/ShoppingCartContext';
+import Basket from './pages/Basket';
 
 function App() {
   return (
@@ -11,15 +12,10 @@ function App() {
       <div className="bg-slate-100">
         <NavBar />
         <Routes>
-          <Route path="/" element={<Home />}>
-            Home
-          </Route>
-          <Route path="/Store" element={<Store />}>
-            Store
-          </Route>
-          <Route path="/About" element={<About />}>
-            About
-          </Route>
+          <Route path="/" element={<Home />} />
+          <Route path="/Store" element={<Store />} />
+          <Route path="/About" element={<About />} />
+          <Route path="/Basket" element={<Basket />} />
         </Routes>
       </div>
     </ShoppingCartProvider>

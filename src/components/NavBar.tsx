@@ -8,7 +8,7 @@ export default function NavBar() {
   const toggleHamburger = () => setIsHamburgerOpen((isOpen) => !isOpen);
 
   return (
-    <header className="flex justify-between sticky top-0 bg-slate-400">
+    <header className="flex z-10 justify-between sticky top-0 bg-slate-400">
       <div className={'MOBILE-MENU flex items-center p-2 h-12 md:hidden'}>
         <button
           className={'hamburger-menu-btn' + (isHamburgerOpen ? ' open' : '')}
@@ -33,6 +33,9 @@ export default function NavBar() {
           <li className="nav-li">
             <NavLink to="/About">About</NavLink>
           </li>
+          <li className="nav-li">
+            <NavLink to="/Basket">Checkout</NavLink>
+          </li>
         </ul>
       </div>
       <ul className="DESKTOP-MENU hidden md:flex">
@@ -44,6 +47,9 @@ export default function NavBar() {
         </li>
         <li className="nav-li">
           <NavLink to="/About">About</NavLink>
+        </li>
+        <li className="nav-li">
+          <NavLink to="/Basket">Checkout</NavLink>
         </li>
       </ul>
       <button onClick={openCart} className="rounded-full">
