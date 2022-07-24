@@ -25,7 +25,7 @@ export default function StoreItemPreview({
   const quantity = getItemQuantity(id);
 
   return createPortal(
-    <div className="flex backdrop-blur-md justify-center items-center fixed top-0 w-full h-full z-10">
+    <div className="flex backdrop-blur-sm bg-transparent-white justify-center items-center fixed top-0 w-full h-full z-10">
       <div className="flex flex-col w-80 h-5/6 bg-slate-400 p-4 shadow-md overflow-y-scroll">
         <button onClick={closeMenu} className="ml-auto mb-4">
           <img src={closeIcon} width="16" height="16" alt="" />

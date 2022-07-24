@@ -69,126 +69,126 @@ const storeItems = [
     price: 2500,
     paths: getProps('dog', 'Fountain').paths,
     desc: 'In the Chinese zodiac, the dog symbolises loyalty, integrity and devotion to just causes. Its profound intelligence, sensitive soul and alert mind often make it the defender of universal values. A loyal friend and reliable travelling companion, this pathfinder for peace brings balance and harmony to the world. Favourable to stability and positive change, the Chinese Year of the Dog promises the union of the very best energies.'
+  },
+  {
+    id: 2,
+    name: getProps('dog', 'Roller').name,
+    price: 2500,
+    paths: getProps('dog', 'Roller').paths,
+    desc: 'According to legend, on one particular New Year, the Emperor of Jade summoned all the animals in creation to a mysterious meeting, promising them a special reward. Only 12 animals responded to the invitation. The Emperor then gave each of the twelve a year of their own, numbered in the order of their arrival, and that year would carry their name forever. The fifth sign is the Dragon, the only mythological animal to be included in the Chinese zodiac.'
+  },
+  {
+    id: 3,
+    name: getProps('dragon', 'Fountain').name,
+    price: 2500,
+    paths: getProps('dragon', 'Fountain').paths,
+    desc: 'According to legend, on one particular New Year, the Emperor of Jade summoned all the animals in creation to a mysterious meeting, promising them a special reward. Only 12 animals responded to the invitation. The Emperor then gave each of the twelve a year of their own, numbered in the order of their arrival, and that year would carry their name forever. The fifth sign is the Dragon, the only mythological animal to be included in the Chinese zodiac.'
+  },
+  {
+    id: 4,
+    name: getProps('dragon', 'Roller').name,
+    price: 2500,
+    paths: getProps('dragon', 'Roller').paths,
+    desc: 'In the Chinese zodiac, the dog symbolises loyalty, integrity and devotion to just causes. Its profound intelligence, sensitive soul and alert mind often make it the defender of universal values. A loyal friend and reliable travelling companion, this pathfinder for peace brings balance and harmony to the world. Favourable to stability and positive change, the Chinese Year of the Dog promises the union of the very best energies.'
+  },
+  {
+    id: 5,
+    name: getProps('goat', 'Fountain').name,
+    price: 2500,
+    paths: getProps('goat', 'Fountain').paths,
+    desc: 'The Chinese commonly regard sheep as an auspicious animal, and the year of the sheep, therefore, heralds a year of promise and prosperity. In Chinese astrology, Goats are described as peace-loving, kind, and popular. With the addition of the Wood element, the Goat characteristic is thought to love peace and to be helpful and trusting, but yet also to be clinging and of a nature resistant to change.'
+  },
+  {
+    id: 6,
+    name: getProps('goat', 'Roller').name,
+    price: 2500,
+    paths: getProps('goat', 'Roller').paths,
+    desc: 'The Chinese commonly regard sheep as an auspicious animal, and the year of the sheep, therefore, heralds a year of promise and prosperity. In Chinese astrology, Goats are described as peace-loving, kind, and popular. With the addition of the Wood element, the Goat characteristic is thought to love peace and to be helpful and trusting, but yet also to be clinging and of a nature resistant to change.'
+  },
+  {
+    id: 7,
+    name: getProps('horse', 'Fountain').name,
+    price: 2500,
+    paths: getProps('horse', 'Fountain').paths,
+    desc: 'According to legend, at one Chinese New year the Emperor of Jade summoned all the animals in creation to his palace, promising them a valuable gift. Only 12 answered the mysterious invitation and the Emperor awarded each of them a year of the Zodiac in the order of their arrival.'
+  },
+  {
+    id: 8,
+    name: getProps('horse', 'Roller').name,
+    price: 2500,
+    paths: getProps('horse', 'Roller').paths,
+    desc: 'According to legend, at one Chinese New year the Emperor of Jade summoned all the animals in creation to his palace, promising them a valuable gift. Only 12 answered the mysterious invitation and the Emperor awarded each of them a year of the Zodiac in the order of their arrival.'
+  },
+  {
+    id: 9,
+    name: getProps('monkey', 'Fountain').name,
+    price: 2500,
+    paths: getProps('monkey', 'Fountain').paths,
+    desc: 'Endowed with a thirst for learning and a vivid imagination, the monkey is one of the most creative signs of the Chinese zodiac. These passionate beings have a creative mind and love a good challenge. Their intelligence and proven cleverness nurture social relationships, thus promising an exceptionally ingenious year.'
+  },
+  {
+    id: 10,
+    name: getProps('monkey', 'Roller').name,
+    price: 2500,
+    paths: getProps('monkey', 'Roller').paths,
+    desc: 'Endowed with a thirst for learning and a vivid imagination, the monkey is one of the most creative signs of the Chinese zodiac. These passionate beings have a creative mind and love a good challenge. Their intelligence and proven cleverness nurture social relationships, thus promising an exceptionally ingenious year.'
+  },
+  {
+    id: 11,
+    name: getProps('ox', 'Fountain').name,
+    price: 2500,
+    paths: getProps('ox', 'Fountain').paths,
+    desc: 'In the Chinese zodiac, the ox symbolises good fortune and prosperity. The year of the ox will be punctuated by numerous challenges, and if the effort made is sufficient, success will be guaranteed. A year under the aegis of the ox is therefore often synonymous with ambition and the consolidation of achievements.'
+  },
+  {
+    id: 12,
+    name: getProps('ox', 'Roller').name,
+    price: 2500,
+    paths: getProps('ox', 'Roller').paths,
+    desc: 'In the Chinese zodiac, the ox symbolises good fortune and prosperity. The year of the ox will be punctuated by numerous challenges, and if the effort made is sufficient, success will be guaranteed. A year under the aegis of the ox is therefore often synonymous with ambition and the consolidation of achievements.'
+  },
+  {
+    id: 13,
+    name: getProps('pig', 'Fountain').name,
+    price: 2500,
+    paths: getProps('pig', 'Fountain').paths,
+    desc: 'The joyful silhouette of the Pig appears on a glossy black Chinese lacquer background, patiently applied layer after layer, according to ancestral tradition. The delicately engraved design presents the animal in a joyful position, surrounding the body of the writing instrument with its friendly smile facing the observer. The lines and swirls in hot gold foil that define its shape leap forth from the black Chinese lacquer to create the noblest of contrasts.'
+  },
+  {
+    id: 14,
+    name: getProps('pig', 'Roller').name,
+    price: 2500,
+    paths: getProps('pig', 'Roller').paths,
+    desc: 'The joyful silhouette of the Pig appears on a glossy black Chinese lacquer background, patiently applied layer after layer, according to ancestral tradition. The delicately engraved design presents the animal in a joyful position, surrounding the body of the writing instrument with its friendly smile facing the observer. The lines and swirls in hot gold foil that define its shape leap forth from the black Chinese lacquer to create the noblest of contrasts.'
+  },
+  {
+    id: 15,
+    name: getProps('rooster', 'Fountain').name,
+    price: 2500,
+    paths: getProps('rooster', 'Fountain').paths,
+    desc: 'In the Chinese Zodiac, the rooster symbolises the sun’s energy, intelligence and the art of appearances. Brave, methodical and precise, the Rooster is successful and aims for excellence. Its profound honesty is an asset in its partnerships and alliances. Its exceptional strength of conviction and sparkling charisma often position it as a leading figure. Considerate and sensitive to the well-being of loved ones, the rooster protects family relationships, pledging peace and harmony.'
+  },
+  {
+    id: 16,
+    name: getProps('rooster', 'Roller').name,
+    price: 2500,
+    paths: getProps('rooster', 'Roller').paths,
+    desc: 'In the Chinese Zodiac, the rooster symbolises the sun’s energy, intelligence and the art of appearances. Brave, methodical and precise, the Rooster is successful and aims for excellence. Its profound honesty is an asset in its partnerships and alliances. Its exceptional strength of conviction and sparkling charisma often position it as a leading figure. Considerate and sensitive to the well-being of loved ones, the rooster protects family relationships, pledging peace and harmony.'
+  },
+  {
+    id: 17,
+    name: getProps('snake', 'Fountain').name,
+    price: 2500,
+    paths: getProps('snake', 'Fountain').paths,
+    desc: 'Following the Dragon, the legendary founder of Chinese civilisation, it is now the turn of its brother symbol, the Snake. In fact, the Dragon takes the form of a snake on Earth, and the two are linked together in Chinese astrology. They share intelligence, beauty, knowledge, magic and mystery. In Chinese mythology, the two are civilising divinities who originated human beings and are traditionally shown in the bodies of snakes. Entwined together to become one, they create order on earth and transmit knowledge.'
+  },
+  {
+    id: 18,
+    name: getProps('snake', 'Roller').name,
+    price: 2500,
+    paths: getProps('snake', 'Roller').paths,
+    desc: 'Following the Dragon, the legendary founder of Chinese civilisation, it is now the turn of its brother symbol, the Snake. In fact, the Dragon takes the form of a snake on Earth, and the two are linked together in Chinese astrology. They share intelligence, beauty, knowledge, magic and mystery. In Chinese mythology, the two are civilising divinities who originated human beings and are traditionally shown in the bodies of snakes. Entwined together to become one, they create order on earth and transmit knowledge.'
   }
-  // {
-  //   id: 2,
-  //   name: 'YEAR OF THE DOG Roller Pen Limited Edition',
-  //   price: 2500,
-  //   imgUrl:
-  //     '/images/YEAR OF THE DOG Roller Pen Limited Edition/YEAR OF THE DOG Roller Pen Limited Edition.png'
-  // },
-  // {
-  //   id: 3,
-  //   name: 'YEAR OF THE DRAGON Fountain Pen Limited Edition',
-  //   price: 2500,
-  //   imgUrl:
-  //     '/images/YEAR OF THE DRAGON Fountain Pen Limited Edition/YEAR OF THE DRAGON Fountain Pen Limited Edition.png'
-  // },
-  // {
-  //   id: 4,
-  //   name: 'YEAR OF THE DRAGON Roller Pen Limited Edition',
-  //   price: 2500,
-  //   imgUrl:
-  //     '/images/YEAR OF THE DRAGON Roller Pen Limited Edition/YEAR OF THE DRAGON Roller Pen Limited Edition.png'
-  // },
-  // {
-  //   id: 5,
-  //   name: 'YEAR OF THE GOAT Fountain Pen Limited Edition',
-  //   price: 2500,
-  //   imgUrl:
-  //     '/images/YEAR OF THE GOAT Fountain Pen Limited Edition/YEAR OF THE GOAT Fountain Pen Limited Edition.png'
-  // },
-  // {
-  //   id: 6,
-  //   name: 'YEAR OF THE GOAT Roller Pen Limited Edition',
-  //   price: 2500,
-  //   imgUrl:
-  //     '/images/YEAR OF THE GOAT Roller Pen Limited Edition/YEAR OF THE GOAT Roller Pen Limited Edition.png'
-  // },
-  // {
-  //   id: 7,
-  //   name: 'YEAR OF THE HORSE Fountain Pen Limited Edition',
-  //   price: 2500,
-  //   imgUrl:
-  //     '/images/YEAR OF THE HORSE Fountain Pen Limited Edition/YEAR OF THE HORSE Fountain Pen Limited Edition.png'
-  // },
-  // {
-  //   id: 8,
-  //   name: 'YEAR OF THE HORSE Roller Pen Limited Edition',
-  //   price: 2500,
-  //   imgUrl:
-  //     '/images/YEAR OF THE HORSE Roller Pen Limited Edition/YEAR OF THE HORSE Roller Pen Limited Edition.png'
-  // },
-  // {
-  //   id: 9,
-  //   name: 'YEAR OF THE MONKEY Fountain Pen Limited Edition',
-  //   price: 2500,
-  //   imgUrl:
-  //     '/images/YEAR OF THE MONKEY Fountain Pen Limited Edition/YEAR OF THE MONKEY Fountain Pen Limited Edition.png'
-  // },
-  // {
-  //   id: 10,
-  //   name: 'YEAR OF THE MONKEY Roller Pen Limited Edition',
-  //   price: 2500,
-  //   imgUrl:
-  //     '/images/YEAR OF THE MONKEY Roller Pen Limited Edition/YEAR OF THE MONKEY Roller Pen Limited Edition.png'
-  // },
-  // {
-  //   id: 11,
-  //   name: 'YEAR OF THE OX Fountain Pen Limited Edition',
-  //   price: 2500,
-  //   imgUrl:
-  //     '/images/YEAR OF THE OX Fountain Pen Limited Edition/YEAR OF THE OX Fountain Pen Limited Edition.png'
-  // },
-  // {
-  //   id: 12,
-  //   name: 'YEAR OF THE OX Roller Pen Limited Edition',
-  //   price: 2500,
-  //   imgUrl:
-  //     '/images/YEAR OF THE OX Roller Pen Limited Edition/YEAR OF THE OX Roller Pen Limited Edition.png'
-  // },
-  // {
-  //   id: 13,
-  //   name: 'YEAR OF THE PIG Fountain Pen Limited Edition',
-  //   price: 2500,
-  //   imgUrl:
-  //     '/images/YEAR OF THE PIG Fountain Pen Limited Edition/YEAR OF THE PIG Fountain Pen Limited Edition.png'
-  // },
-  // {
-  //   id: 14,
-  //   name: 'YEAR OF THE PIG Roller Pen Limited Edition',
-  //   price: 2500,
-  //   imgUrl:
-  //     '/images/YEAR OF THE PIG Roller Pen Limited Edition/YEAR OF THE PIG Roller Pen Limited Edition.png'
-  // },
-  // {
-  //   id: 15,
-  //   name: 'YEAR OF THE ROOSTER Fountain Pen Limited Edition',
-  //   price: 2500,
-  //   imgUrl:
-  //     '/images/YEAR OF THE ROOSTER Fountain Pen Limited Edition/YEAR OF THE ROOSTER Fountain Pen Limited Edition.png'
-  // },
-  // {
-  //   id: 16,
-  //   name: 'YEAR OF THE ROOSTER Roller Pen Limited Edition',
-  //   price: 2500,
-  //   imgUrl:
-  //     '/images/YEAR OF THE ROOSTER Roller Pen Limited Edition/YEAR OF THE ROOSTER Roller Pen Limited Edition.png'
-  // },
-  // {
-  //   id: 17,
-  //   name: 'YEAR OF THE SNAKE Fountain Pen Limited Edition',
-  //   price: 2500,
-  //   imgUrl:
-  //     '/images/YEAR OF THE SNAKE Fountain Pen Limited Edition/YEAR OF THE SNAKE Fountain Pen Limited Edition.png'
-  // },
-  // {
-  //   id: 18,
-  //   name: 'YEAR OF THE DOG Roller Pen Limited Edition',
-  //   price: 2500,
-  //   imgUrl:
-  //     '/images/YEAR OF THE SNAKE Roller Pen Limited Edition/YEAR OF THE SNAKE Roller Pen Limited Edition.png'
-  // }
 ];
 
 export default storeItems;

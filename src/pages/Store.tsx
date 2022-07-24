@@ -38,7 +38,7 @@ function StoreItem({ id, name, price, desc, paths }: StoreItemProps) {
       <img
         src={paths[1]}
         alt={name}
-        className="rounded-t-md h-48 w-full object-cover"
+        className="rounded-t-md h-48 w-full object-cover transition-transform duration-300 hover:scale-110"
         onClick={openPreview}
       />
       <div className="p-2">

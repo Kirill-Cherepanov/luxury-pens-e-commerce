@@ -46,12 +46,12 @@ export default function NavBar() {
           <NavLink to="/About">About</NavLink>
         </li>
       </ul>
-      {cartItemsQuantity === 0 ? null : (
-        <button onClick={openCart} className="rounded-full">
-          Cart
+      <button onClick={openCart} className="rounded-full">
+        Cart
+        {cartItemsQuantity === 0 ? null : (
           <div className="rounded-full">{cartItemsQuantity}</div>
-        </button>
-      )}
+        )}
+      </button>
     </header>
   );
 }
