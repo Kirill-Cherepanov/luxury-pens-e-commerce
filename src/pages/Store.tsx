@@ -2,7 +2,8 @@ import storeItems from '../data/items';
 import { formatCurrency } from '../utilities/formatCurrency';
 import { useShoppingCart } from '../context/ShoppingCartContext';
 import ItemButtons from '../components/ItemButtons';
-import closeIcon from '../icons/close.svg';
+import StoreItemPreview from '../components/StoreItemPreview';
+import { useState } from 'react';
 
 export default function Store() {
   return (
@@ -13,7 +14,6 @@ export default function Store() {
           <StoreItem key={item.id} {...item} />
         ))}
       </ul>
-      <StoreItemPreview {...storeItems[0]} />
     </div>
   );
 }
@@ -22,10 +22,14 @@ type StoreItemProps = {
   id: number;
   name: string;
   price: number;
+  desc: string;
   paths: string[];
 };
 
-function StoreItem({ id, name, price, paths }: StoreItemProps) {
+function StoreItem({ id, name, price, desc, paths }: StoreItemProps) {
+  const [isPreviewOpen, setIsPreviewOpen] = useState(false);
+  const openPreview = () => setIsPreviewOpen(true);
+  const closePreview = () => setIsPreviewOpen(false);
   const { getItemQuantity } = useShoppingCart();
   const quantity = getItemQuantity(id);
 
@@ -35,11 +39,12 @@ function StoreItem({ id, name, price, paths }: StoreItemProps) {
         src={paths[1]}
         alt={name}
         className="rounded-t-md h-48 w-full object-cover"
+        onClick={openPreview}
       />
       <div className="p-2">
         <div className="flex justify-between">
-          <h4>{name}</h4>
-          <span>{formatCurrency(price)}</span>
+          <h4 onClick={openPreview}>{name}</h4>
+          <span onClick={openPreview}>{formatCurrency(price)}</span>
         </div>
         <div>
           {quantity === 0 ? (
@@ -51,59 +56,17 @@ function StoreItem({ id, name, price, paths }: StoreItemProps) {
             </div>
           )}
         </div>
-      </div>
+      </div>{' '}
+      {isPreviewOpen && (
+        <StoreItemPreview
+          id={id}
+          name={name}
+          price={price}
+          paths={paths}
+          desc={desc}
+          closeMenu={closePreview}
+        />
+      )}
     </li>
-  );
-}
-type StoreItemPreviewProps = {
-  id: number;
-  name: string;
-  price: number;
-  paths: string[];
-  desc: string;
-};
-
-function StoreItemPreview({
-  id,
-  name,
-  price,
-  paths,
-  desc
-}: StoreItemPreviewProps) {
-  const { getItemQuantity } = useShoppingCart();
-  const quantity = getItemQuantity(id);
-
-  return (
-    <div className="flex backdrop-blur-md justify-center items-center fixed top-0 w-full h-full z-10">
-      <div className="flex flex-col w-11/12 bg-slate-400 p-4 shadow-md">
-        <button className="ml-auto">
-          <img src={closeIcon} width="16" height="16" alt="" />
-        </button>
-        <div className="GALLERY bg-slate-500">
-          <div className="MAGIC-SCROLL hidden md:flex md:flex-col">
-            {paths.map((path) => (
-              <img src={path} alt={name} />
-            ))}
-          </div>
-          <div className="SWIPER-SLIDER overflow-x-hidden flex md:hidden">
-            {paths.map((path) => (
-              <img src={path} alt={name} />
-            ))}
-          </div>
-        </div>
-        <div className="font-bold text-lg">{name}</div>
-        <div className="font-bold text-lg pb-4 border-b border-slate-800">
-          {formatCurrency(price)}
-        </div>
-        <div className="py-4">
-          {quantity === 0 ? (
-            <ItemButtons id={id} type="add" />
-          ) : (
-            <ItemButtons id={id} />
-          )}
-        </div>
-        <div className="italic text-justify">{desc}</div>
-      </div>
-    </div>
   );
 }
