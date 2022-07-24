@@ -10,9 +10,11 @@
   .translate-x-screen {
     transform: translate(100vw);
   }
+
   .-translate-x-screen {
     transform: translate(-100vw);
   }
+
   .bg-transparent-white {
     background-color: rgba(255, 255, 255, 0.6);
   }
@@ -83,4 +85,23 @@
     -o-transform: rotate(-135deg);
     transform: rotate(-135deg);
   }
+}
+
+@layer utilities {
+  .cart-scrollbar::-webkit-scrollbar {
+    @apply w-2;
+  }
+
+  .cart-scrollbar::-webkit-scrollbar-track {
+    @apply bg-slate-300;
+  }
+
+  .cart-scrollbar::-webkit-scrollbar-thumb {
+    @apply bg-slate-600;
+  }
+
+  .cart-scrollbar::-webkit-scrollbar-thumb:hover {
+    @apply bg-slate-700;
+  }
+
 }

@@ -20,38 +20,45 @@ export default function ShoppingCart() {
   return (
     <div
       className={
-        'flex flex-col transition-opacity duration-300 overflow-hidden fixed top-12 right-0 w-80 bg-slate-400' +
-        (isCartOpen ? ' p-2 h-auto opacity-100' : ' h-0 opacity-0 ')
+        'z-10 flex flex-col transition-opacity duration-300 overflow-hidden fixed top-12 right-0 w-80 bg-slate-300' +
+        (isCartOpen
+          ? ' h-auto max-h-[100%] opacity-100 border-t border-opacity-70 border-t-slate-500'
+          : ' h-0 opacity-0 ')
       }
     >
       {cartItems.length === 0 ? (
-        <>
+        <div>
           <button onClick={closeCart} className="w-4 h-4 ml-auto">
             <img src={closeIcon} width="16" height="16" alt="" />
           </button>
           <p>Your cart is empty</p>
-        </>
+        </div>
       ) : (
         <>
-          <div className="flex">
+          <div className="flex h-16 p-3 py-5 bg-slate-400">
             <button onClick={clearCart}>Clear</button>
-            <button onClick={closeCart} className="w-4 h-4 ml-auto">
+            <button
+              onClick={closeCart}
+              className="ml-auto flex justify-center items-center"
+            >
               <img src={closeIcon} width="16" height="16" alt="" />
             </button>
           </div>
-          <h2 className="text-lg font-bold text-center">Shopping Cart</h2>
-          <div className="overflow-y-scroll h-100">
+          <ul className="cart-scrollbar overflow-y-scroll max-h-100">
             {cartItems.map((item) => (
               <CartItem key={item.id} {...item} />
             ))}
+          </ul>
+          <div className="bg-slate-400 p-2">
+            <div className="flex justify-between font-bold">
+              <span>
+                TOTAL AMOUNT:
+                <small className="block italic">(shipping included)</small>
+              </span>
+              {formatCurrency(total)}
+            </div>
+            <NavLink to="/Basket">Checkout</NavLink>
           </div>
-          <div className="flex justify-between">
-            <span>
-              Total Amount:<small className="block">(shipping included)</small>
-            </span>
-            {formatCurrency(total)}
-          </div>
-          <NavLink to="/Basket">Checkout</NavLink>
         </>
       )}
     </div>
@@ -68,24 +75,35 @@ function CartItem({ id, quantity }: CartItemProps) {
   const { removeItem } = useShoppingCart();
   const item = storeItems.find((item) => item.id === id);
   if (item === undefined) return null;
+  const actualName = item.name
+    .split(' ')
+    .slice(0, item.name.split(' ').length - 2)
+    .join(' ');
 
   return (
-    <div className="flex flex-col border-b border-b-slate-800 mb-2">
-      <img
-        src={item.paths[0]}
-        alt={item.name}
-        className="h-20 w-full object-cover"
-      />
-      <div>{item.name}</div>
-      <button onClick={() => setIsPreviewOpen(true)}>View</button>
-      <div className="flex justify-between">
-        <button onClick={() => removeItem(item.id)}>Remove</button>
-        {<ItemButtons id={item.id} className="inline-flex" />}{' '}
-        {formatCurrency(item.price)}
-      </div>
-      {isPreviewOpen && (
-        <StoreItemPreview closeMenu={() => setIsPreviewOpen(false)} {...item} />
-      )}
-    </div>
+    <li className="border-b border-opacity-70 border-b-slate-500 last-of-type:border-b-0">
+      <li className="pr-3 pl-5 py-4 flex flex-col">
+        <img
+          src={item.paths[0]}
+          alt={item.name}
+          className="h-20 w-full object-cover"
+        />
+        <div className="flex justify-center items-center gap-4 my-3">
+          <div className="text-[15px] font-bold">{actualName}</div>
+          <div>{formatCurrency(item.price)}</div>
+        </div>
+        <div className="flex justify-between">
+          <button onClick={() => removeItem(item.id)}>Remove</button>
+          <ItemButtons id={item.id} className="inline-flex" />
+          <button onClick={() => setIsPreviewOpen(true)}>View</button>
+        </div>
+        {isPreviewOpen && (
+          <StoreItemPreview
+            closeMenu={() => setIsPreviewOpen(false)}
+            {...item}
+          />
+        )}
+      </li>
+    </li>
   );
 }

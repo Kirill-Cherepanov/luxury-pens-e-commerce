@@ -136,7 +136,7 @@ function BasketItem({ id, className }: BaksetItemProps) {
         </div>
         <div className="hidden md:flex flex-col justify-start ml-auto ">
           {formatCurrency(item.price)}
-          <ItemButtons id={item.id} className="" />
+          <ItemButtons id={item.id} className="inline-flex" />
         </div>
       </div>
       <div className="flex md:hidden justify-between">
