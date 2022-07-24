@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/luxury-pens-e-commerce/static/css/main.0841efa6.css",
+    "main.js": "/luxury-pens-e-commerce/static/js/main.2c8979f5.js",
+    "static/media/close.svg": "/luxury-pens-e-commerce/static/media/close.43acac53cb85a6489dbf8cf3109f8021.svg",
+    "index.html": "/luxury-pens-e-commerce/index.html",
+    "main.0841efa6.css.map": "/luxury-pens-e-commerce/static/css/main.0841efa6.css.map",
+    "main.2c8979f5.js.map": "/luxury-pens-e-commerce/static/js/main.2c8979f5.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0841efa6.css",
+    "static/js/main.2c8979f5.js"
+  ]
+}
