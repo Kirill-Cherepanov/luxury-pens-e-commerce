@@ -34,7 +34,7 @@ export default function ItemButtons({
     );
 
   return (
-    <div className={'flex gap-2 ' + className}>
+    <div className={'flex gap-2 justify-center ' + className}>
       <button onClick={() => decreaseItemQuantity(id)}>-</button>
       <div>{getItemQuantity(id)}</div>
       <button onClick={() => increaseItemQuantity(id)}>+</button>

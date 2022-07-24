@@ -28,33 +28,31 @@ export default function Basket() {
 
   return (
     <div className="pt-4">
-      <div className="px-6">
-        <div className="flex align-center border-b-2 border-b-slate-400 pb-4">
-          <NavLink to="/Store" className="flex flex-col justify-end basis-1/3">
+      <div className="px-6 md:mx-8 lg:max-w-5xl lg:mx-auto">
+        <div className="flex align-center border-b-2 pb-4">
+          <NavLink to="/Store" className="flex align-center basis-1/3">
             Continue shopping
           </NavLink>
-          <h1 className="text-center font-bold text-xl basis-1/3">BASKET</h1>
+          <h1 className="flex align-center justify-center font-bold text-xl basis-1/3">
+            BASKET
+          </h1>
         </div>
       </div>
-      <ul className="px-6 mb-10">
+      <ul className="px-6 md:mx-8 lg:max-w-5xl lg:mx-auto mb-10">
         {cartItems.map((item) => (
-          <BasketItem
-            className=" my-4 border-b border-b-slate-600"
-            key={item.id}
-            {...item}
-          />
+          <BasketItem className=" pb-4 my-4 border-b" key={item.id} {...item} />
         ))}
       </ul>
-      <div>
-        <div className="px-6 mb-10">
+      <div className="flex flex-col mb-8 lg:flex-row lg:justify-between lg:w-[1024px] lg:mx-auto lg:px-8 lg:my-14">
+        <div className="NOTE px-6 mb-10 md:px-8 lg:px-0 lg:flex-row lg:w-100 lg:m-0">
           <p className="text-red-500 text-justify">
             Please, check carefully your order and your contact information
             before clicking on the "Order" button. No alteration will be
             accepted afterward.
           </p>
         </div>
-        <div className="ORDER-SUMMARY bg-slate-200 mb-8">
-          <div className="px-6 py-8">
+        <div className="ORDER-SUMMARY w-full bg-slate-200 ml-auto mr-6 max-w-md md:mr-8 lg:mr-0">
+          <div className="px-6 lg:max-w-5xl lg:mx-auto py-8">
             <h3 className="text-lg font-bold mb-4">Order summary</h3>
             <div className="flex justify-between">
               <span className="text-sm">Total item cost:</span>
@@ -65,7 +63,7 @@ export default function Basket() {
               <span className="font-bold">{formatCurrency(0)}</span>
             </div>
           </div>
-          <div className="px-6 py-5 bg-slate-600 text-white">
+          <div className="px-6 lg:max-w-5xl lg:mx-auto py-5 bg-slate-600 text-white">
             <div className="flex justify-between mb-4">
               <span className="">TOTAL AMOUNT:</span>
               <span className="font-bold">{formatCurrency(total)}</span>
@@ -76,22 +74,22 @@ export default function Basket() {
           </div>
         </div>
       </div>
-      <div className="px-4 pb-8">
-        <div className="mb-8 w-3/4 mx-auto text-center">
-          <h4 className="mb-1 font-bold text">DELIVERY</h4>
+      <div className="px-4 pb-8 flex flex-col lg:flex-row lg:max-w-5xl lg:mx-auto lg:gap-4">
+        <div className="mb-8 w-3/4 mx-auto text-center lg:text-left">
+          <h4 className="mb-1 font-bold">DELIVERY</h4>
           <p className="text-sm">
             Free delivery across the globe. Possible return under 14 days.
           </p>
         </div>
-        <div className="mb-8 w-3/4 mx-auto text-center">
-          <h4 className="mb-1 font-bold text">SECURE PAYMENT</h4>
+        <div className="mb-8 w-3/4 mx-auto text-center lg:text-left">
+          <h4 className="mb-1 font-bold">SECURE PAYMENT</h4>
           <p className="text-sm">
             Visa, Mastercard, Post Finance, Paypal, Twint, WebMoney, CIPS,
             EasyPay, etc.
           </p>
         </div>
-        <div className=" w-3/4 mx-auto text-center">
-          <h4 className="mb-1 font-bold text">CUSTOMER SERVICE</h4>
+        <div className=" w-3/4 mx-auto text-center lg:text-left">
+          <h4 className="mb-1 font-bold">CUSTOMER SERVICE</h4>
           <p className="text-sm">
             Monday to Friday from 10am to 7pm and Saturday from 10am to 5pm.
           </p>
@@ -125,16 +123,24 @@ function BasketItem({ id, className }: BaksetItemProps) {
         <img src={closeIcon} width="16" height="16" alt="" />
       </button>
       <div className="flex">
-        <img
-          src={item.paths[0]}
-          alt={item.name}
-          className="h-20 w-full object-cover"
-        />
-        <div>{item.name}</div>
+        <div className="mr-12 w-5/12 shrink-0 bg-slate-300 md:w-100">
+          <img
+            src={item.paths[1]}
+            alt={item.name}
+            className="w-full h-[20vw] object-cover md:h-32 md:w-100"
+          />
+        </div>
+        <div>
+          <div className="font-bold">{item.name}</div>
+          <button onClick={() => setIsPreviewOpen(true)}>View</button>
+        </div>
+        <div className="hidden md:flex flex-col justify-start ml-auto ">
+          {formatCurrency(item.price)}
+          <ItemButtons id={item.id} className="inline-flex" />
+        </div>
       </div>
-      <button onClick={() => setIsPreviewOpen(true)}>View</button>
-      <div className="flex justify-between">
-        {<ItemButtons id={item.id} className="inline-flex" />}{' '}
+      <div className="flex md:hidden justify-between">
+        <ItemButtons id={item.id} className="inline-flex" />
         {formatCurrency(item.price)}
       </div>
       {isPreviewOpen && (
