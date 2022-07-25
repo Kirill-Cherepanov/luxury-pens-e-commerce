@@ -27,11 +27,14 @@ export default function ShoppingCart() {
       }
     >
       {cartItems.length === 0 ? (
-        <div>
-          <button onClick={closeCart} className="w-4 h-4 ml-auto">
+        <div className="h-24 py-5 px-3 bg-slate-400 flex flex-col justify-between">
+          <button
+            onClick={closeCart}
+            className="ml-auto flex justify-center items-center h-6"
+          >
             <img src={closeIcon} width="16" height="16" alt="" />
           </button>
-          <p>Your cart is empty</p>
+          <p className="font-medium">Your cart is empty</p>
         </div>
       ) : (
         <>

@@ -5,10 +5,10 @@ import closeIcon from '../icons/close.svg';
 import { createPortal } from 'react-dom';
 import { Swiper, SwiperSlide, useSwiper } from 'swiper/react';
 import { Navigation, Pagination, A11y } from 'swiper';
-import 'swiper/css';
+// import 'swiper/css';
 import 'swiper/css/bundle';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
+// import 'swiper/css/navigation';
+// import 'swiper/css/pagination';
 import React, { useState } from 'react';
 
 type StoreItemPreviewProps = {
@@ -40,18 +40,17 @@ export default function StoreItemPreview({
       }}
       className="flex backdrop-blur-sm bg-opacity-60 bg-white justify-center items-center fixed top-0 w-full h-full z-20"
     >
-      <div className="flex flex-col min-w-[20rem] w-1/2 max-w-xl h-5/6 bg-slate-300 p-4 shadow-md overflow-y-scroll">
+      <div className="preview-scrollbar flex flex-col min-w-[20rem] w-1/2 max-w-xl h-5/6 bg-slate-200 p-4 shadow-md overflow-y-scroll">
         <button onClick={closeMenu} className="ml-auto mb-4">
           <img src={closeIcon} width="16" height="16" alt="" />
         </button>
-        <div className="GALLERY max-h-[320px] bg-slate-400">
+        <div className="GALLERY max-h-[320px] bg-slate-300 rounded-lg">
           <div className="hidden lg:flex">
             <div className="flex-shrink-0 w-28 h-80">
               <Swiper
                 style={
                   {
-                    '--swiper-navigation-color': '#fff',
-                    '--swiper-pagination-color': '#fff'
+                    '--swiper-theme-color': 'rgb(100 116 139)'
                   } as React.CSSProperties
                 }
                 slidesPerView={3}
@@ -69,9 +68,9 @@ export default function StoreItemPreview({
                       alt={name + ' ' + index}
                       onClick={() => {}}
                       className={
-                        'cursor-pointer h-full w-full object-contain select-none hover:bg-slate-500' +
-                        (index === currentSlide
-                          ? ' bg-slate-600 hover:bg-slate-600'
+                        'cursor-pointer h-full w-full object-contain select-none transition-colors bg-slate-500 hover:bg-slate-500' +
+                        (index !== currentSlide
+                          ? ' bg-transparent hover:bg-slate-400'
                           : '')
                       }
                     />,
@@ -79,7 +78,7 @@ export default function StoreItemPreview({
                   );
 
                   return (
-                    <SwiperSlide key={path} className=" hover:bg-slate-500">
+                    <SwiperSlide key={path}>
                       <Image />
                     </SwiperSlide>
                   );
@@ -97,8 +96,7 @@ export default function StoreItemPreview({
           <Swiper
             style={
               {
-                '--swiper-navigation-color': '#fff',
-                '--swiper-pagination-color': '#fff'
+                '--swiper-theme-color': 'rgb(100 116 139)'
               } as React.CSSProperties
             }
             modules={[Navigation, Pagination, A11y]}
@@ -122,11 +120,15 @@ export default function StoreItemPreview({
           <div className="font-bold text-lg pb-1">{name}</div>
           <div className="">{formatCurrency(price)}</div>
         </div>
-        <div className="pb-4 border-b mb-8 text-center">
+        <div className="w-full uppercase font-bold text-center mb-6">
           {quantity === 0 ? (
-            <ItemButtons id={id} type="add" />
+            <ItemButtons
+              id={id}
+              type="add"
+              className="w-full py-2 transition-all rounded-md bg-slate-400 hover:bg-slate-500"
+            />
           ) : (
-            <ItemButtons id={id} />
+            <ItemButtons id={id} className="mx-auto" />
           )}
         </div>
         <div className="italic text-justify">{desc}</div>
