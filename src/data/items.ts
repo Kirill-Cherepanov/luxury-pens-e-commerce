@@ -4,7 +4,7 @@ const homepage = DEPLOY_HOMEPAGE;
 
 const getProps = (year: string, type: string) => {
   return {
-    name: `YEAR OF THE ${year.toUpperCase()} ${type} Pen Limited Edition`,
+    name: `YEAR OF THE ${year.toUpperCase()} ${type} Pen`,
     paths: [1, 2, 3, 4].map((n) => {
       return `${homepage}images/YEAR OF THE ${year.toUpperCase()} ${type} Pen Limited Edition/${n}.png`;
     })

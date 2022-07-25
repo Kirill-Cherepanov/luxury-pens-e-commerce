@@ -75,21 +75,17 @@ function CartItem({ id, quantity }: CartItemProps) {
   const { removeItem } = useShoppingCart();
   const item = storeItems.find((item) => item.id === id);
   if (item === undefined) return null;
-  const actualName = item.name
-    .split(' ')
-    .slice(0, item.name.split(' ').length - 2)
-    .join(' ');
 
   return (
     <li className="border-b border-opacity-70 border-b-slate-500 last-of-type:border-b-0">
-      <li className="pr-3 pl-5 py-4 flex flex-col">
+      <div className="pr-3 pl-5 py-4 flex flex-col">
         <img
           src={item.paths[0]}
           alt={item.name}
           className="h-20 w-full object-cover"
         />
         <div className="flex justify-center items-center gap-4 my-3">
-          <div className="text-[15px] font-bold">{actualName}</div>
+          <div className="text-[15px] font-bold">{item.name}</div>
           <div>{formatCurrency(item.price)}</div>
         </div>
         <div className="flex justify-between">
@@ -103,7 +99,7 @@ function CartItem({ id, quantity }: CartItemProps) {
             {...item}
           />
         )}
-      </li>
+      </div>
     </li>
   );
 }
