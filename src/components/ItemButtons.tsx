@@ -1,5 +1,8 @@
 import { useShoppingCart } from '../context/ShoppingCartContext';
 
+import plusIcon from '../icons/plus.svg';
+import minusIcon from '../icons/minus.svg';
+
 type QuantityButtonsProps = {
   id: number;
   type?: string;
@@ -34,10 +37,25 @@ export default function ItemButtons({
     );
 
   return (
-    <div className={'flex gap-2 justify-center ' + className}>
-      <button onClick={() => decreaseItemQuantity(id)}>-</button>
-      <div>{getItemQuantity(id)}</div>
-      <button onClick={() => increaseItemQuantity(id)}>+</button>
+    <div
+      className={
+        'border-2 border-black flex gap-1 justify-center items-center text-lg font-medium h-10 w-32 rounded-full ' +
+        className
+      }
+    >
+      <button onClick={() => decreaseItemQuantity(id)}>
+        <img
+          src={minusIcon}
+          alt="decrease"
+          className="w-auto h-6 select-none"
+        />
+      </button>
+      <span className="inline-block w-8 text-center">
+        {getItemQuantity(id)}
+      </span>
+      <button onClick={() => increaseItemQuantity(id)}>
+        <img src={plusIcon} alt="increase" className="w-auto h-6" />
+      </button>
     </div>
   );
 }

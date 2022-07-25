@@ -1,11 +1,16 @@
 import { useShoppingCart } from '../context/ShoppingCartContext';
 import ItemButtons from '../components/ItemButtons';
 import { formatCurrency } from '../utilities/formatCurrency';
-import closeIcon from '../icons/close.svg';
 import StoreItemPreview from '../components/StoreItemPreview';
 import storeItems from '../data/items';
 import { NavLink } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+
+import closeIcon from '../icons/close.svg';
+import deliveryIcon from '../icons/airplane.svg';
+import securePaymentIcon from '../icons/shield.svg';
+import customerServiceIcon from '../icons/support.png';
+import returnIcon from '../icons/arrow-back-outline.svg';
 
 export default function Basket() {
   const { closeCart, cartItems, toggleIsRemoveOnZero } = useShoppingCart();
@@ -29,12 +34,22 @@ export default function Basket() {
   return (
     <div className="pt-4">
       <div className="px-6 md:mx-8 lg:max-w-5xl lg:mx-auto">
-        <div className="flex align-center border-b-2 pb-4">
-          <NavLink to="/Store" className="flex align-center basis-1/3">
-            Continue shopping
-          </NavLink>
-          <h1 className="flex align-center justify-center font-bold text-xl basis-1/3">
-            BASKET
+        <div className="flex border-b-2 pb-4">
+          <div className="basis-1/3 flex items-end">
+            <NavLink
+              to="/Store"
+              className="inline-flex items-center text-lg font-medium"
+            >
+              <img
+                src={returnIcon}
+                alt=""
+                className="h-7 w-auto mr-2 select-none"
+              />
+              <span>Continue shopping</span>
+            </NavLink>
+          </div>
+          <h1 className="flex justify-center font-bold text-3xl basis-1/3">
+            Basket
           </h1>
         </div>
       </div>
@@ -74,22 +89,43 @@ export default function Basket() {
           </div>
         </div>
       </div>
-      <div className="px-4 pb-8 flex flex-col lg:flex-row lg:max-w-5xl lg:mx-auto lg:gap-4">
+      <div className="px-6 md:px-8 pb-8 flex flex-col lg:flex-row lg:max-w-5xl lg:mx-auto lg:gap-8">
         <div className="mb-8 w-3/4 mx-auto text-center lg:text-left">
-          <h4 className="mb-1 font-bold">DELIVERY</h4>
+          <h4 className="mb-1 font-bold flex items-center justify-center  lg:justify-start">
+            <img
+              src={deliveryIcon}
+              alt=""
+              className="inline-block mr-1 h-5 w-auto select-none"
+            />
+            <span>DELIVERY</span>
+          </h4>
           <p className="text-sm">
-            Free delivery across the globe. Possible return under 14 days.
+            Free delivery all across the globe. Possible return under 14 days.
           </p>
         </div>
         <div className="mb-8 w-3/4 mx-auto text-center lg:text-left">
-          <h4 className="mb-1 font-bold">SECURE PAYMENT</h4>
+          <h4 className="mb-1 font-bold flex items-center justify-center  lg:justify-start">
+            <img
+              src={securePaymentIcon}
+              alt=""
+              className="inline-block mr-1 h-5 w-auto select-none"
+            />
+            <span>SECURE PAYMENT</span>
+          </h4>
           <p className="text-sm">
             Visa, Mastercard, Post Finance, Paypal, Twint, WebMoney, CIPS,
             EasyPay, etc.
           </p>
         </div>
         <div className=" w-3/4 mx-auto text-center lg:text-left">
-          <h4 className="mb-1 font-bold">CUSTOMER SERVICE</h4>
+          <h4 className="mb-1 font-bold flex items-center justify-center  lg:justify-start">
+            <img
+              src={customerServiceIcon}
+              alt=""
+              className="inline-block mr-1 h-5 w-auto select-none"
+            />
+            <span>CUSTOMER SERVICE</span>
+          </h4>
           <p className="text-sm">
             Monday to Friday from 10am to 7pm and Saturday from 10am to 5pm.
           </p>
@@ -118,30 +154,47 @@ function BasketItem({ id, className }: BaksetItemProps) {
   if (item === undefined) return null;
 
   return (
-    <li className={'flex flex-col shadow-md p-4 rounded-md ' + className}>
+    <li
+      className={
+        'flex flex-col shadow-md p-4 rounded-md bg-slate-200' + className
+      }
+    >
       <button onClick={() => removeItem(id)} className="ml-auto mb-4">
-        <img src={closeIcon} width="16" height="16" alt="" />
+        <img
+          src={closeIcon}
+          width="16"
+          height="16"
+          alt=""
+          className="select-none"
+        />
       </button>
-      <div className="flex">
-        <div className="mr-12 w-5/12 shrink-0 bg-slate-300 md:w-100">
+      <div className="flex gap-6 flex-col sm:flex-row">
+        <div className="shrink-0 bg-slate-300 w-full sm:w-5/12 md:max-w-md">
           <img
             src={item.paths[1]}
             alt={item.name}
-            className="w-full h-[20vw] object-cover md:h-32 md:w-100"
+            className="w-full object-cover h-[30vw] sm:h-[20vw] md:h-32 md:max-w-md"
           />
         </div>
-        <div>
-          <div className="font-bold">{item.name}</div>
-          <button onClick={() => setIsPreviewOpen(true)}>View</button>
+        <div className="flex flex-col justify-center gap-4 sm:gap-6 md:gap-0 md:my-4 md:justify-between md:items-center">
+          <div className="font-bold md:text-center">{item.name}</div>
+          <button
+            onClick={() => setIsPreviewOpen(true)}
+            className="flex items-center justify-center font-bold bg-slate-400 rounded-full py-1.5 xs:text-lg sm:w-32"
+          >
+            View
+          </button>
         </div>
-        <div className="hidden md:flex flex-col justify-start ml-auto ">
-          {formatCurrency(item.price)}
-          <ItemButtons id={item.id} className="inline-flex" />
+        <div className="hidden md:flex flex-col justify-center items-center gap-6 ml-auto">
+          <span className="font-bold">{formatCurrency(item.price)}</span>
+          <ItemButtons id={item.id} className="" />
         </div>
       </div>
-      <div className="flex md:hidden justify-between">
+      <div className="flex md:hidden items-center justify-between mt-6">
         <ItemButtons id={item.id} className="inline-flex" />
-        {formatCurrency(item.price)}
+        <span className="font-medium text-lg">
+          {formatCurrency(item.price)}
+        </span>
       </div>
       {isPreviewOpen && (
         <StoreItemPreview closeMenu={() => setIsPreviewOpen(false)} {...item} />
