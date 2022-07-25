@@ -32,7 +32,7 @@ export default function ItemButtons({
   if (type === 'add')
     return (
       <button onClick={() => increaseItemQuantity(id)} className={className}>
-        + Add to Cart
+        Add to Cart
       </button>
     );
 

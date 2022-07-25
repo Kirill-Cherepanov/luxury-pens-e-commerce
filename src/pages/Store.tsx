@@ -34,14 +34,14 @@ function StoreItem({ id, name, price, desc, paths }: StoreItemProps) {
   const quantity = getItemQuantity(id);
 
   return (
-    <li className="bg-white rounded-md shadow-md h-100">
+    <li className="bg-white rounded-md shadow-md">
       <img
         src={paths[0]}
         alt={name}
         className="rounded-t-md bg-slate-200 h-48 w-full object-cover transition-all duration-300 hover:bg-slate-300 cursor-pointer"
         onClick={openPreview}
       />
-      <div className="p-4 flex flex-col h-36">
+      <div className="p-4 flex flex-col h-40 xs:h-36 sm:h-44">
         <div className="flex justify-between">
           <h4 onClick={openPreview} className="cursor-pointer font-bold mr-4">
             {name}
@@ -55,11 +55,19 @@ function StoreItem({ id, name, price, desc, paths }: StoreItemProps) {
         </div>
         <div className="mt-auto">
           {quantity === 0 ? (
-            <ItemButtons id={id} type="add" className="w-full" />
+            <ItemButtons
+              id={id}
+              type="add"
+              className="w-full uppercase font-bold bg-slate-200 py-2 duration-300 hover:bg-slate-300"
+            />
           ) : (
             <div className="flex flex-col items-center gap-2">
               <ItemButtons id={id} />
-              <ItemButtons id={id} type="remove" />
+              <ItemButtons
+                id={id}
+                type="remove"
+                className="uppercase font-bold"
+              />
             </div>
           )}
         </div>

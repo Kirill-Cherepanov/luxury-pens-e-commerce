@@ -38,17 +38,17 @@ export default function Basket() {
           <div className="basis-1/3 flex items-end">
             <NavLink
               to="/Store"
-              className="inline-flex items-center text-lg font-medium"
+              className="inline-flex text-lg font-medium h-full items-end xs:items-center"
             >
               <img
                 src={returnIcon}
                 alt=""
                 className="h-7 w-auto mr-2 select-none"
               />
-              <span>Continue shopping</span>
+              <span className="hidden xs:inline">Continue shopping</span>
             </NavLink>
           </div>
-          <h1 className="flex justify-center font-bold text-3xl basis-1/3">
+          <h1 className="flex justify-center items-center font-bold text-3xl basis-1/3">
             Basket
           </h1>
         </div>
