@@ -40,11 +40,11 @@ export default function StoreItemPreview({
       }}
       className="flex backdrop-blur-sm bg-opacity-60 bg-white justify-center items-center fixed top-0 w-full h-full z-20"
     >
-      <div className="preview-scrollbar flex flex-col min-w-[20rem] w-1/2 max-w-xl h-5/6 bg-slate-200 p-4 shadow-md overflow-y-scroll">
+      <div className="preview-scrollbar flex flex-col min-w-[20rem] w-1/2 max-w-xl h-5/6 bg-primary-200 p-4 shadow-md overflow-y-scroll">
         <button onClick={closeMenu} className="ml-auto mb-4">
           <img src={closeIcon} width="16" height="16" alt="" />
         </button>
-        <div className="GALLERY max-h-[320px] bg-slate-300 rounded-lg">
+        <div className="GALLERY max-h-[320px] bg-primary-300 rounded-lg">
           <div className="hidden lg:flex">
             <div className="flex-shrink-0 w-28 h-80">
               <Swiper
@@ -68,9 +68,9 @@ export default function StoreItemPreview({
                       alt={name + ' ' + index}
                       onClick={() => {}}
                       className={
-                        'cursor-pointer h-full w-full object-contain select-none transition-colors bg-slate-500 hover:bg-slate-500' +
+                        'cursor-pointer h-full w-full object-contain select-none transition-colors bg-primary-500 hover:bg-primary-500' +
                         (index !== currentSlide
-                          ? ' bg-transparent hover:bg-slate-400'
+                          ? ' bg-transparent hover:bg-primary-400'
                           : '')
                       }
                     />,
@@ -125,7 +125,7 @@ export default function StoreItemPreview({
             <ItemButtons
               id={id}
               type="add"
-              className="w-full py-2 transition-all rounded-md bg-slate-400 hover:bg-slate-500"
+              className="w-full py-2 transition-all rounded-md bg-primary-400 hover:bg-primary-500"
             />
           ) : (
             <ItemButtons id={id} className="mx-auto" />

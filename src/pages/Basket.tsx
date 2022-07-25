@@ -66,7 +66,7 @@ export default function Basket() {
             accepted afterward.
           </p>
         </div>
-        <div className="ORDER-SUMMARY w-full overflow-hidden bg-slate-200 ml-auto mr-6 max-w-md md:mr-8 shadow-lg sm:rounded-md lg:mr-0">
+        <div className="ORDER-SUMMARY w-full overflow-hidden bg-primary-200 ml-auto mr-6 max-w-md md:mr-8 shadow-lg sm:rounded-md lg:mr-0">
           <div className="px-6 lg:max-w-5xl lg:mx-auto py-8">
             <h3 className="text-lg font-bold mb-4">Order summary</h3>
             <div className="flex justify-between">
@@ -78,12 +78,12 @@ export default function Basket() {
               <span className="font-bold">{formatCurrency(0)}</span>
             </div>
           </div>
-          <div className="px-6 lg:max-w-5xl lg:mx-auto py-5 bg-slate-600 text-white">
+          <div className="px-6 lg:max-w-5xl lg:mx-auto py-5 bg-primary-600 text-white">
             <div className="flex justify-between mb-4">
               <span className="">TOTAL AMOUNT:</span>
               <span className="font-bold">{formatCurrency(total)}</span>
             </div>
-            <button className="block mx-auto bg-white text-slate-600 rounded-full px-4 py-2">
+            <button className="block mx-auto bg-white text-primary-600 rounded-full px-4 py-2">
               Confirm my order
             </button>
           </div>
@@ -156,7 +156,7 @@ function BasketItem({ id, className }: BaksetItemProps) {
   return (
     <li
       className={
-        'flex flex-col shadow-md p-4 rounded-md bg-slate-200' + className
+        'flex flex-col shadow-md p-4 rounded-md bg-primary-200' + className
       }
     >
       <button onClick={() => removeItem(id)} className="ml-auto mb-4">
@@ -169,7 +169,7 @@ function BasketItem({ id, className }: BaksetItemProps) {
         />
       </button>
       <div className="flex gap-6 flex-col sm:flex-row">
-        <div className="shrink-0 bg-slate-300 w-full sm:w-5/12 md:max-w-md">
+        <div className="shrink-0 bg-primary-300 w-full sm:w-5/12 md:max-w-md">
           <img
             src={item.paths[1]}
             alt={item.name}
@@ -180,7 +180,7 @@ function BasketItem({ id, className }: BaksetItemProps) {
           <div className="font-bold md:text-center">{item.name}</div>
           <button
             onClick={() => setIsPreviewOpen(true)}
-            className="flex items-center justify-center font-bold bg-slate-400 rounded-full py-1.5 xs:text-lg sm:w-32"
+            className="flex items-center justify-center font-bold bg-primary-400 rounded-full py-1.5 xs:text-lg sm:w-32"
           >
             View
           </button>

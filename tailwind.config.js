@@ -1,4 +1,5 @@
 const defaultTheme = require('tailwindcss/defaultTheme');
+const colors = require('tailwindcss/colors');
 
 module.exports = {
   mode: 'jit',
@@ -9,6 +10,11 @@ module.exports = {
       ...defaultTheme.screens
     },
     extend: {
+      colors: {
+        // amber, gray, neutral, slate, stone, zinc
+        primary: colors.stone,
+        secondary: colors.stone
+      },
       spacing: {
         100: '25rem'
       },

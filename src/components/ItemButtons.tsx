@@ -39,7 +39,7 @@ export default function ItemButtons({
   return (
     <div
       className={
-        'border-2 border-black flex gap-1 justify-center items-center text-lg font-medium h-10 w-32 rounded-full ' +
+        'border-2 border-primary-700 flex gap-1 justify-center items-center text-lg font-medium h-10 w-32 rounded-full ' +
         className
       }
     >

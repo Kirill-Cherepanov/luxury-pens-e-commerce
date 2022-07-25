@@ -20,14 +20,14 @@ export default function ShoppingCart() {
   return (
     <div
       className={
-        'text-slate-700 z-10 flex flex-col transition-opacity duration-300 overflow-hidden fixed top-14 w-80 bg-slate-300 right-0 lg:right-[calc(50%-488px)]' +
+        'text-secondary-800 z-10 flex flex-col transition-opacity duration-300 overflow-hidden fixed top-14 w-80 bg-primary-300 right-0 lg:right-[calc(50%-488px)]' +
         (isCartOpen
-          ? ' h-auto max-h-[calc(100%-56px)] opacity-100 border-t border-opacity-70 border-t-slate-500'
+          ? ' h-auto max-h-[calc(100%-56px)] opacity-100 border-t border-opacity-70 border-t-primary-500'
           : ' h-0 opacity-0 ')
       }
     >
       {cartItems.length === 0 ? (
-        <div className="h-24 py-5 px-3 bg-slate-400 flex flex-col justify-between">
+        <div className="h-24 py-5 px-3 bg-primary-400 flex flex-col justify-between">
           <button
             onClick={closeCart}
             className="ml-auto flex justify-center items-center h-6"
@@ -38,7 +38,7 @@ export default function ShoppingCart() {
         </div>
       ) : (
         <>
-          <div className="flex h-16 p-3 py-5 bg-slate-400">
+          <div className="flex h-16 p-3 py-5 bg-primary-400">
             <button onClick={clearCart} className="uppercase font-bold">
               Clear
             </button>
@@ -54,7 +54,7 @@ export default function ShoppingCart() {
               <CartItem key={item.id} {...item} />
             ))}
           </ul>
-          <div className="bg-slate-400 p-2">
+          <div className="bg-primary-400 p-2">
             <div className="flex justify-between font-bold">
               <span>
                 TOTAL AMOUNT:
@@ -65,7 +65,7 @@ export default function ShoppingCart() {
             <div className="block md:hidden text-center mt-4 w-full">
               <NavLink
                 to="/Basket"
-                className="block text-lg font-medium bg-slate-700 text-slate-50 py-1 w-full rounded-md "
+                className="block text-lg font-medium bg-primary-700 text-secondary-50-50 py-1 w-full rounded-md "
               >
                 Checkout
               </NavLink>
@@ -89,7 +89,7 @@ function CartItem({ id, quantity }: CartItemProps) {
   if (item === undefined) return null;
 
   return (
-    <li className="border-b border-opacity-50 border-b-slate-400 last-of-type:border-b-0">
+    <li className="border-b border-opacity-50 border-b-primary-400 last-of-type:border-b-0">
       <div className="pr-1 pl-3 py-4 flex flex-col">
         <img
           src={item.paths[0]}

@@ -38,7 +38,7 @@ function StoreItem({ id, name, price, desc, paths }: StoreItemProps) {
       <img
         src={paths[0]}
         alt={name}
-        className="rounded-t-md bg-slate-200 h-48 w-full object-cover transition-all duration-300 hover:bg-slate-300 cursor-pointer"
+        className="rounded-t-md bg-primary-200 h-48 w-full object-cover transition-all duration-300 hover:bg-primary-300 cursor-pointer"
         onClick={openPreview}
       />
       <div className="p-4 flex flex-col h-40 xs:h-36 sm:h-44">
@@ -58,7 +58,7 @@ function StoreItem({ id, name, price, desc, paths }: StoreItemProps) {
             <ItemButtons
               id={id}
               type="add"
-              className="w-full uppercase font-bold bg-slate-200 py-2 duration-300 hover:bg-slate-300"
+              className="w-full uppercase font-bold bg-primary-200 py-2 duration-300 hover:bg-primary-300"
             />
           ) : (
             <div className="flex flex-col items-center gap-2">

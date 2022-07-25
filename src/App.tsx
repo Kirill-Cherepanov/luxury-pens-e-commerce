@@ -9,7 +9,7 @@ import Basket from './pages/Basket';
 function App() {
   return (
     <ShoppingCartProvider>
-      <div className="preview-scroll bg-slate-100 text-slate-700">
+      <div className="preview-scroll bg-primary-100 text-secondary-800">
         <NavBar />
         <Routes>
           <Route path="/" element={<Home />} />

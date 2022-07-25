@@ -11,7 +11,9 @@ export default function NavBar() {
 
   return (
     <header
-      className={'z-10 shadow-xl sticky top-0 bg-slate-400 h-14 text-slate-900'}
+      className={
+        'z-10 shadow-xl sticky top-0 bg-primary-400 h-14 text-secondary-900'
+      }
     >
       <div className="px-2 md:px-8 mx-auto flex justify-center items-center max-w-5xl h-full">
         <div
@@ -29,8 +31,8 @@ export default function NavBar() {
           </button>
           <ul
             className={
-              (!isHamburgerOpen ? '-translate-x-screen' : '') +
-              ' border-t border-opacity-70 border-t-slate-500 absolute top-14 left-0 p-4 transition-transform flex flex-col gap-4 bg-slate-400 w-full sm:gap-6 sm:p-6'
+              (!isHamburgerOpen ? '-tranprimary-x-screen' : '') +
+              ' border-t border-opacity-70 border-t-primary-500 absolute top-14 left-0 p-4 transition-transform flex flex-col gap-4 bg-primary-400 w-full sm:gap-6 sm:p-6'
             }
           >
             <li className="text-xl font-medium">
@@ -55,12 +57,12 @@ export default function NavBar() {
             <NavLink to="/About">About</NavLink>
           </li>
         </ul>
-        <div className="basis-60 text-4xl text-slate-900 shrink-0 font-sansita select-none flex justify-center text-center">
+        <div className="basis-60 text-4xl text-primary-900 shrink-0 font-sansita select-none flex justify-center text-center">
           Luxury pens
         </div>
         <div className="basis-1/2 flex justify-end items-center gap-6">
           {pathname === '/Basket' || cartItemsQuantity === 0 ? null : (
-            <div className="hidden md:block text-lg font-medium bg-slate-700 text-slate-50 px-4 py-1 rounded-full">
+            <div className="hidden md:block text-lg font-medium bg-primary-700 text-secondary-50 px-4 py-1 rounded-full">
               <NavLink to="/Basket">Checkout</NavLink>
             </div>
           )}
@@ -68,7 +70,7 @@ export default function NavBar() {
             <button onClick={openCart} className="rounded-full relative">
               <img src={cartIcon} alt="Cart" className="w-8 h-8" />
               {cartItemsQuantity === 0 ? null : (
-                <div className="rounded-full w-4 h-4 absolute right-[-2px] bottom-[-2px] text-white text-xs font-bold bg-slate-700">
+                <div className="rounded-full w-4 h-4 absolute right-[-2px] bottom-[-2px] text-white text-xs font-bold bg-primary-700">
                   {cartItemsQuantity}
                 </div>
               )}
