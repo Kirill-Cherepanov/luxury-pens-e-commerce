@@ -32,21 +32,19 @@ export default function StoreItemPreview({
   const { getItemQuantity } = useShoppingCart();
   const quantity = getItemQuantity(id);
 
-  const SwipeOnClickWrapper = swipeOnClickWrapper(<p>Please work</p>, 1);
-
   return createPortal(
     <div
       onMouseDown={(e) => {
         if (e.currentTarget !== e.target) return true;
         closeMenu();
       }}
-      className="flex backdrop-blur-sm bg-transparent-white justify-center items-center fixed top-0 w-full h-full z-20"
+      className="flex backdrop-blur-sm bg-opacity-60 bg-white justify-center items-center fixed top-0 w-full h-full z-20"
     >
-      <div className="flex flex-col min-w-[20rem] w-1/2 max-w-xl h-5/6 bg-slate-400 p-4 shadow-md overflow-y-scroll">
+      <div className="flex flex-col min-w-[20rem] w-1/2 max-w-xl h-5/6 bg-slate-300 p-4 shadow-md overflow-y-scroll">
         <button onClick={closeMenu} className="ml-auto mb-4">
           <img src={closeIcon} width="16" height="16" alt="" />
         </button>
-        <div className="GALLERY max-h-[320px] mb-2 bg-slate-500">
+        <div className="GALLERY max-h-[320px] bg-slate-400">
           <div className="hidden lg:flex">
             <div className="flex-shrink-0 w-28 h-80">
               <Swiper
@@ -70,19 +68,18 @@ export default function StoreItemPreview({
                       src={path}
                       alt={name + ' ' + index}
                       onClick={() => {}}
-                      className="h-full w-full object-contain select-none"
+                      className={
+                        'cursor-pointer h-full w-full object-contain select-none hover:bg-slate-500' +
+                        (index === currentSlide
+                          ? ' bg-slate-600 hover:bg-slate-600'
+                          : '')
+                      }
                     />,
                     index
                   );
 
                   return (
-                    <SwiperSlide
-                      key={path}
-                      className={
-                        `bg-slate-300` +
-                        (index === currentSlide ? 'bg-slate-400' : '')
-                      }
-                    >
+                    <SwiperSlide key={path} className=" hover:bg-slate-500">
                       <Image />
                     </SwiperSlide>
                   );
@@ -93,7 +90,7 @@ export default function StoreItemPreview({
               <img
                 src={paths[currentSlide]}
                 alt={name}
-                className="max-h-[320px] w-full object-contain"
+                className="max-h-[320px] w-full object-contain select-none"
               />
             </div>
           </div>
@@ -108,20 +105,24 @@ export default function StoreItemPreview({
             navigation={true}
             pagination={{ clickable: false, dynamicBullets: true }}
             loop={true}
-            className="lg:hidden"
+            className="max-h-[320px] lg:hidden"
           >
             {paths.map((path, index) => (
               <SwiperSlide key={index}>
-                <img src={path} alt={name} className="select-none" />
+                <img
+                  src={path}
+                  alt={name}
+                  className="select-none max-h-[320px] w-full object-contain"
+                />
               </SwiperSlide>
             ))}
           </Swiper>
         </div>
-        <div className="font-bold text-lg">{name}</div>
-        <div className="font-bold text-lg pb-4 border-b border-slate-800">
-          {formatCurrency(price)}
+        <div className="py-4 flex flex-col justify-between items-center lg:flex-row">
+          <div className="font-bold text-lg pb-1">{name}</div>
+          <div className="">{formatCurrency(price)}</div>
         </div>
-        <div className="py-4">
+        <div className="pb-4 border-b mb-8 text-center">
           {quantity === 0 ? (
             <ItemButtons id={id} type="add" />
           ) : (

@@ -20,9 +20,9 @@ export default function ShoppingCart() {
   return (
     <div
       className={
-        'z-10 flex flex-col transition-opacity duration-300 overflow-hidden fixed top-12 right-0 w-80 bg-slate-300' +
+        'z-10 flex flex-col transition-opacity duration-300 overflow-hidden fixed top-14 w-80 bg-slate-300 right-0 lg:right-[calc(50%-488px)]' +
         (isCartOpen
-          ? ' h-auto max-h-[100%] opacity-100 border-t border-opacity-70 border-t-slate-500'
+          ? ' h-auto max-h-[calc(100%-56px)] opacity-100 border-t border-opacity-70 border-t-slate-500'
           : ' h-0 opacity-0 ')
       }
     >

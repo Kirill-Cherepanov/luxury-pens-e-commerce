@@ -8,7 +8,7 @@ import { useState } from 'react';
 export default function Store() {
   return (
     <div className="px-6 max-w-5xl mx-auto md:px-8">
-      <h1 className="text-center text-5xl font-bold mt-4 mb-6">Store</h1>
+      <h1 className="text-center text-3xl font-bold mt-4 mb-6">Store</h1>
       <ul className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
         {storeItems.map((item) => (
           <StoreItem key={item.id} {...item} />

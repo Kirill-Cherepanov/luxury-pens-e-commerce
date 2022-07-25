@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import { useShoppingCart } from '../context/ShoppingCartContext';
+import cartIcon from '../icons/cart.svg';
 
 export default function NavBar() {
   let { pathname } = useLocation();
@@ -9,62 +10,70 @@ export default function NavBar() {
   const toggleHamburger = () => setIsHamburgerOpen((isOpen) => !isOpen);
 
   return (
-    <header className="flex z-10 shadow-xl justify-between sticky top-0 bg-slate-400">
-      <div className={'MOBILE-MENU flex items-center p-2 h-12 md:hidden'}>
-        <button
-          className={'hamburger-menu-btn' + (isHamburgerOpen ? ' open' : '')}
-          onClick={toggleHamburger}
-        >
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-        <ul
+    <header className="z-10 shadow-xl sticky top-0 bg-slate-400 h-14 text-slate-900">
+      <div className="px-2 md:px-8 mx-auto flex justify-center max-w-5xl h-full">
+        <div
           className={
-            (!isHamburgerOpen ? '-translate-x-screen' : '') +
-            ' absolute top-12 left-0 p-4 transition-transform flex flex-col gap-4 bg-slate-400 w-full'
+            'MOBILE-MENU basis-1/2 flex items-center p-2 h-12 md:hidden'
           }
         >
-          <li className="nav-li">
+          <button
+            className={'hamburger-menu-btn' + (isHamburgerOpen ? ' open' : '')}
+            onClick={toggleHamburger}
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+          <ul
+            className={
+              (!isHamburgerOpen ? '-translate-x-screen' : '') +
+              ' absolute top-12 left-0 p-4 transition-transform flex flex-col gap-4 bg-slate-400 w-full sm:gap-6 sm:p-6'
+            }
+          >
+            <li className="text-xl font-medium">
+              <NavLink to="/">Home</NavLink>
+            </li>
+            <li className="text-xl font-medium">
+              <NavLink to="/Store">Store</NavLink>
+            </li>
+            <li className="text-xl font-medium">
+              <NavLink to="/About">About</NavLink>
+            </li>
+          </ul>
+        </div>
+        <ul className="DESKTOP-MENU hidden md:flex basis-1/2 gap-6 items-center">
+          <li className="text-xl font-medium">
             <NavLink to="/">Home</NavLink>
           </li>
-          <li className="nav-li">
+          <li className="text-xl font-medium">
             <NavLink to="/Store">Store</NavLink>
           </li>
-          <li className="nav-li">
+          <li className="text-xl font-medium">
             <NavLink to="/About">About</NavLink>
           </li>
-          {pathname === '/Basket' || cartItemsQuantity === 0 ? null : (
-            <li className="nav-li">
-              <NavLink to="/Basket">Checkout</NavLink>
-            </li>
-          )}
         </ul>
-      </div>
-      <ul className="DESKTOP-MENU hidden md:flex">
-        <li className="nav-li">
-          <NavLink to="/">Home</NavLink>
-        </li>
-        <li className="nav-li">
-          <NavLink to="/Store">Store</NavLink>
-        </li>
-        <li className="nav-li">
-          <NavLink to="/About">About</NavLink>
-        </li>
-        {pathname === '/Basket' || cartItemsQuantity === 0 ? null : (
-          <li className="nav-li">
-            <NavLink to="/Basket">Checkout</NavLink>
-          </li>
-        )}
-      </ul>
-      {pathname === '/Basket' ? null : (
-        <button onClick={openCart} className="rounded-full">
-          Cart
-          {cartItemsQuantity === 0 ? null : (
-            <div className="rounded-full">{cartItemsQuantity}</div>
+        <div className="basis-60 text-4xl text-slate-900 shrink-0 font-sansita select-none flex justify-center text-center">
+          Luxury pens
+        </div>
+        <div className="basis-1/2 flex justify-end items-center gap-6">
+          {pathname === '/Basket' ? null : (
+            <button onClick={openCart} className="rounded-full relative">
+              <img src={cartIcon} alt="Cart" className="w-8 h-8" />
+              {cartItemsQuantity === 0 ? null : (
+                <div className="rounded-full w-4 h-4 absolute right-[-2px] bottom-[-2px] text-white text-xs font-bold bg-slate-900">
+                  {cartItemsQuantity}
+                </div>
+              )}
+            </button>
           )}
-        </button>
-      )}
+          {pathname === '/Basket' || cartItemsQuantity === 0 ? null : (
+            <div className="text-lg font-medium bg-slate-800 text-slate-50 px-4 py-1 rounded-full">
+              <NavLink to="/Basket">Checkout</NavLink>
+            </div>
+          )}
+        </div>
+      </div>
     </header>
   );
 }

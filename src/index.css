@@ -1,24 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@300;400;500;600;700;800;900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer components {
-  .nav-li {
-    @apply text-xl;
-  }
-
-  .translate-x-screen {
-    transform: translate(100vw);
-  }
-
-  .-translate-x-screen {
-    transform: translate(-100vw);
-  }
-
-  .bg-transparent-white {
-    background-color: rgba(255, 255, 255, 0.6);
-  }
-
   .hamburger-menu-btn {
     width: 32px;
     height: 30px;
@@ -35,11 +21,12 @@
   }
 
   .hamburger-menu-btn span {
+    @apply bg-slate-800;
+    /* background: #d3531a; */
     display: block;
     position: absolute;
     height: 6px;
     width: 100%;
-    background: #d3531a;
     border-radius: 5px;
     opacity: 1;
     left: 0;

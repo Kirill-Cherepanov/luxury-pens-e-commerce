@@ -5,6 +5,12 @@ module.exports = {
     extend: {
       spacing: {
         100: '25rem'
+      },
+      fontFamily: {
+        sansita: 'Sansita Swashed, cursive'
+      },
+      translate: {
+        screen: '100vw'
       }
     }
   },
