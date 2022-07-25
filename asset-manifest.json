@@ -1,14 +1,20 @@
 {
   "files": {
-    "main.css": "/luxury-pens-e-commerce/static/css/main.861f9d34.css",
-    "main.js": "/luxury-pens-e-commerce/static/js/main.cb544d60.js",
+    "main.css": "/luxury-pens-e-commerce/static/css/main.caef2563.css",
+    "main.js": "/luxury-pens-e-commerce/static/js/main.7a0b64ae.js",
+    "static/media/airplane.svg": "/luxury-pens-e-commerce/static/media/airplane.1b2bffdb123b67b4f27c55756f5fdb48.svg",
     "static/media/close.svg": "/luxury-pens-e-commerce/static/media/close.43acac53cb85a6489dbf8cf3109f8021.svg",
+    "static/media/cart.svg": "/luxury-pens-e-commerce/static/media/cart.ec34e04f278866298777c9836305a693.svg",
     "index.html": "/luxury-pens-e-commerce/index.html",
-    "main.861f9d34.css.map": "/luxury-pens-e-commerce/static/css/main.861f9d34.css.map",
-    "main.cb544d60.js.map": "/luxury-pens-e-commerce/static/js/main.cb544d60.js.map"
+    "static/media/shield.svg": "/luxury-pens-e-commerce/static/media/shield.7bb97991e9dd23148fa12213f30f7e0e.svg",
+    "static/media/arrow-back-outline.svg": "/luxury-pens-e-commerce/static/media/arrow-back-outline.9e2bcfcfaa5eac8c9be219d9a7df348f.svg",
+    "static/media/plus.svg": "/luxury-pens-e-commerce/static/media/plus.8a84f57897338a51d9704c451aa0facd.svg",
+    "static/media/minus.svg": "/luxury-pens-e-commerce/static/media/minus.b72eb12a233a292f6426b61e9b25af20.svg",
+    "main.caef2563.css.map": "/luxury-pens-e-commerce/static/css/main.caef2563.css.map",
+    "main.7a0b64ae.js.map": "/luxury-pens-e-commerce/static/js/main.7a0b64ae.js.map"
   },
   "entrypoints": [
-    "static/css/main.861f9d34.css",
-    "static/js/main.cb544d60.js"
+    "static/css/main.caef2563.css",
+    "static/js/main.7a0b64ae.js"
   ]
 }
