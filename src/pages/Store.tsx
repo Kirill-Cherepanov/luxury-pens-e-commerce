@@ -62,12 +62,12 @@ function StoreItem({ id, name, price, desc, paths }: StoreItemProps) {
             />
           ) : (
             <div className="flex flex-col items-center gap-2">
-              <ItemButtons id={id} />
               <ItemButtons
                 id={id}
                 type="remove"
                 className="uppercase font-bold"
               />
+              <ItemButtons id={id} />
             </div>
           )}
         </div>

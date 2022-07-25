@@ -10,8 +10,10 @@ export default function NavBar() {
   const toggleHamburger = () => setIsHamburgerOpen((isOpen) => !isOpen);
 
   return (
-    <header className="z-10 shadow-xl sticky top-0 bg-slate-400 h-14 text-slate-900">
-      <div className="px-2 md:px-8 mx-auto flex justify-center max-w-5xl h-full">
+    <header
+      className={'z-10 shadow-xl sticky top-0 bg-slate-400 h-14 text-slate-900'}
+    >
+      <div className="px-2 md:px-8 mx-auto flex justify-center items-center max-w-5xl h-full">
         <div
           className={
             'MOBILE-MENU basis-1/2 flex items-center p-2 h-12 md:hidden'
@@ -28,7 +30,7 @@ export default function NavBar() {
           <ul
             className={
               (!isHamburgerOpen ? '-translate-x-screen' : '') +
-              ' absolute top-12 left-0 p-4 transition-transform flex flex-col gap-4 bg-slate-400 w-full sm:gap-6 sm:p-6'
+              ' border-t border-opacity-70 border-t-slate-500 absolute top-14 left-0 p-4 transition-transform flex flex-col gap-4 bg-slate-400 w-full sm:gap-6 sm:p-6'
             }
           >
             <li className="text-xl font-medium">
@@ -68,7 +70,7 @@ export default function NavBar() {
             </button>
           )}
           {pathname === '/Basket' || cartItemsQuantity === 0 ? null : (
-            <div className="text-lg font-medium bg-slate-800 text-slate-50 px-4 py-1 rounded-full">
+            <div className="hidden md:block text-lg font-medium bg-slate-800 text-slate-50 px-4 py-1 rounded-full">
               <NavLink to="/Basket">Checkout</NavLink>
             </div>
           )}

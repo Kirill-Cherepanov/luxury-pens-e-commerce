@@ -20,7 +20,7 @@ export default function ShoppingCart() {
   return (
     <div
       className={
-        'z-10 flex flex-col transition-opacity duration-300 overflow-hidden fixed top-14 w-80 bg-slate-300 right-0 lg:right-[calc(50%-488px)]' +
+        'text-slate-700 z-10 flex flex-col transition-opacity duration-300 overflow-hidden fixed top-14 w-80 bg-slate-300 right-0 lg:right-[calc(50%-488px)]' +
         (isCartOpen
           ? ' h-auto max-h-[calc(100%-56px)] opacity-100 border-t border-opacity-70 border-t-slate-500'
           : ' h-0 opacity-0 ')
@@ -36,7 +36,9 @@ export default function ShoppingCart() {
       ) : (
         <>
           <div className="flex h-16 p-3 py-5 bg-slate-400">
-            <button onClick={clearCart}>Clear</button>
+            <button onClick={clearCart} className="uppercase font-bold">
+              Clear
+            </button>
             <button
               onClick={closeCart}
               className="ml-auto flex justify-center items-center"
@@ -57,7 +59,14 @@ export default function ShoppingCart() {
               </span>
               {formatCurrency(total)}
             </div>
-            <NavLink to="/Basket">Checkout</NavLink>
+            <div className="block md:hidden text-center mt-4 w-full">
+              <NavLink
+                to="/Basket"
+                className="block text-lg font-medium bg-slate-700 text-slate-50 py-1 w-full rounded-md "
+              >
+                Checkout
+              </NavLink>
+            </div>
           </div>
         </>
       )}
@@ -77,21 +86,34 @@ function CartItem({ id, quantity }: CartItemProps) {
   if (item === undefined) return null;
 
   return (
-    <li className="border-b border-opacity-70 border-b-slate-500 last-of-type:border-b-0">
-      <div className="pr-3 pl-5 py-4 flex flex-col">
+    <li className="border-b border-opacity-50 border-b-slate-400 last-of-type:border-b-0">
+      <div className="pr-1 pl-3 py-4 flex flex-col">
         <img
           src={item.paths[0]}
           alt={item.name}
           className="h-20 w-full object-cover"
         />
-        <div className="flex justify-center items-center gap-4 my-3">
+        <div className="flex justify-between items-center gap-4 my-3">
           <div className="text-[15px] font-bold">{item.name}</div>
           <div>{formatCurrency(item.price)}</div>
         </div>
-        <div className="flex justify-between">
-          <button onClick={() => removeItem(item.id)}>Remove</button>
-          <ItemButtons id={item.id} className="inline-flex" />
-          <button onClick={() => setIsPreviewOpen(true)}>View</button>
+        <div className="flex justify-center">
+          <button
+            onClick={() => setIsPreviewOpen(true)}
+            className="text-left uppercase font-medium basis-1/2"
+          >
+            View
+          </button>
+          <ItemButtons
+            id={item.id}
+            className="inline-flex shrink-0 h-8 w-28 text-base"
+          />
+          <button
+            onClick={() => removeItem(item.id)}
+            className="text-right uppercase font-medium basis-1/2"
+          >
+            Remove
+          </button>
         </div>
         {isPreviewOpen && (
           <StoreItemPreview
