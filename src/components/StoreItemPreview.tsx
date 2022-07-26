@@ -7,8 +7,8 @@ import { Swiper, SwiperSlide, useSwiper } from 'swiper/react';
 import { Navigation, Pagination, A11y } from 'swiper';
 
 import { formatCurrency } from '../utilities/formatCurrency';
-import closeIcon from '../icons/close.svg';
-import fullscreenIcon from '../icons/fullscreen.svg';
+import Icon from './Icon';
+
 import 'swiper/css';
 import 'swiper/css/a11y';
 import 'swiper/css/navigation';
@@ -54,13 +54,7 @@ export default function StoreItemPreview({
       )}
       <div className="preview-scrollbar flex flex-col min-w-[20rem] w-1/2 max-w-xl h-5/6 bg-primary-200 p-4 shadow-md overflow-y-scroll">
         <button onClick={closeMenu} className="ml-auto mb-4">
-          <img
-            src={closeIcon}
-            width="16"
-            height="16"
-            alt=""
-            className="select-none"
-          />
+          <Icon type="close" className="w-8 h-8 select-none" />
         </button>
         <div className="GALLERY max-h-[320px] bg-primary-300 rounded-lg">
           <div className="DESKTOP_SWIPER hidden lg:flex">
@@ -111,9 +105,8 @@ export default function StoreItemPreview({
                 aria-label="Fullscreen"
                 onClick={() => setFullscreenImage(currentSlide)}
               >
-                <img
-                  src={fullscreenIcon}
-                  alt="Fullscreen"
+                <Icon
+                  type="fullscreen"
                   className="select-none h-10 w-auto absolute right-2 top-2 transition-transform hover:scale-125"
                 />
               </button>
@@ -143,9 +136,8 @@ export default function StoreItemPreview({
                   className="cursor-pointer select-none max-h-[320px] w-full object-contain"
                 />
                 <button aria-label="Fullscreen">
-                  <img
-                    src={fullscreenIcon}
-                    alt="Fullscreen"
+                  <Icon
+                    type="fullscreen"
                     className="select-none h-10 w-auto absolute right-2 top-2 transition-transform hover:scale-125"
                   />
                 </button>

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import { useShoppingCart } from '../context/ShoppingCartContext';
-import cartIcon from '../icons/cart.svg';
+import Icon from './Icon';
 
 export default function NavBar() {
   let { pathname } = useLocation();
@@ -100,7 +100,7 @@ export default function NavBar() {
               onClick={openCart}
               className="rounded-full relative transition-all hover:scale-110 hover:drop-shadow-[4px_4px_1px_rgba(0,0,0,0.15)]"
             >
-              <img src={cartIcon} alt="Cart" className="group w-8 h-8 " />
+              <Icon type="cart" className="group w-8 h-8 " />
               {cartItemsQuantity === 0 ? null : (
                 <div className="rounded-full w-4 h-4 absolute right-[-2px] bottom-[-2px] text-white text-xs font-bold bg-primary-700 group:hover:scale-110 group:hover:drop-shadow-[4px_4px_1px_rgba(0,0,0,0.15)]">
                   {cartItemsQuantity}

@@ -2,10 +2,11 @@ import storeItems from '../data/items';
 import { useShoppingCart } from '../context/ShoppingCartContext';
 import { formatCurrency } from '../utilities/formatCurrency';
 import ItemButtons from './ItemButtons';
-import closeIcon from '../icons/close.svg';
 import { useState } from 'react';
 import StoreItemPreview from './StoreItemPreview';
 import { NavLink } from 'react-router-dom';
+
+import Icon from './Icon';
 
 export default function ShoppingCart() {
   const { isCartOpen, cartItems, closeCart, clearCart } = useShoppingCart();
@@ -32,7 +33,7 @@ export default function ShoppingCart() {
             onClick={closeCart}
             className="ml-auto flex justify-center items-center h-6"
           >
-            <img src={closeIcon} width="16" height="16" alt="" />
+            <Icon type="close" className="w-8 h-8" />
           </button>
           <p className="font-medium">Your cart is empty</p>
         </div>
@@ -49,7 +50,7 @@ export default function ShoppingCart() {
               onClick={closeCart}
               className="ml-auto flex justify-center items-center"
             >
-              <img src={closeIcon} width="16" height="16" alt="" />
+              <Icon type="close" className="w-8 h-8" />
             </button>
           </div>
           <ul className="cart-scrollbar overflow-y-scroll max-h-100">

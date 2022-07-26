@@ -1,8 +1,5 @@
 import { useShoppingCart } from '../context/ShoppingCartContext';
-
-import plusIcon from '../icons/plus.svg';
-import minusIcon from '../icons/minus.svg';
-
+import Icon from './Icon';
 type QuantityButtonsProps = {
   id: number;
   type?: string;
@@ -47,10 +44,9 @@ export default function ItemButtons({
         onClick={() => decreaseItemQuantity(id)}
         className="group grow-1 basis-1/2 h-full transition-colors duration-200 hover:bg-primary-600 border-y-2 border-l-2 border-primary-600 rounded-l-full"
       >
-        <img
-          src={minusIcon}
-          alt="decrease"
-          className="mx-auto w-auto h-6 select-none transition-all duration-200 group-hover:filter-white"
+        <Icon
+          type="minus"
+          className="mx-auto w-auto h-6 select-none transition-all duration-200 group-hover:text-white"
         />
       </button>
       <span className="flex justify-center items-center basis-6 text-center h-full border-y-2 border-primary-600">
@@ -60,11 +56,15 @@ export default function ItemButtons({
         onClick={() => increaseItemQuantity(id)}
         className="group grow-1 basis-1/2 h-full transition-colors duration-200 hover:bg-primary-600 border-y-2 border-r-2 border-primary-600 rounded-r-full"
       >
-        <img
+        <Icon
+          type="plus"
+          className="mx-auto w-auto h-6 select-none transition-all duration-200 group-hover:text-white "
+        />
+        {/* <img
           src={plusIcon}
           alt="increase"
           className="mx-auto w-auto h-6 select-none transition-all duration-200 group-hover:filter-white"
-        />
+        /> */}
       </button>
     </div>
   );

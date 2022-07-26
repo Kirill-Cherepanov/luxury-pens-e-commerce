@@ -6,11 +6,8 @@ import storeItems from '../data/items';
 import { NavLink } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
-import closeIcon from '../icons/close.svg';
-import deliveryIcon from '../icons/airplane.svg';
-import securePaymentIcon from '../icons/shield.svg';
+import Icon from '../components/Icon';
 import customerServiceIcon from '../icons/support.png';
-import returnIcon from '../icons/arrow-back-outline.svg';
 
 export default function Basket() {
   const { closeCart, cartItems, toggleIsRemoveOnZero } = useShoppingCart();
@@ -38,11 +35,7 @@ export default function Basket() {
               to="/luxury-pens-e-commerce/Store"
               className="group inline-flex text-lg font-medium h-full items-end xs:items-center relative hover:before:w-12 xs:hover:before:w-28 sm:hover:before:w-48 before:content-[' '] before:absolute before:bottom-[calc(50%-6px)] xs:before:bottom-[calc(50%-2px)] before:left-[5px] before:w-0 before:border-b-4 before:border-b-secondary-800 before:transition-all before:duration-200"
             >
-              <img
-                src={returnIcon}
-                alt=""
-                className="h-7 w-auto mr-2 select-none"
-              />
+              <Icon type="return" className="h-7 w-auto mr-2 select-none" />
               <span className="hidden xs:inline relative bottom-[1px] transition-opacity duration-200 group-hover:opacity-20">
                 Continue shopping
               </span>
@@ -104,9 +97,8 @@ export default function Basket() {
           <div className="px-6 md:px-8 pb-8 flex flex-col lg:flex-row lg:max-w-5xl lg:mx-auto lg:gap-8">
             <div className="mb-8 w-3/4 mx-auto text-center lg:text-left">
               <h4 className="mb-1 font-bold flex items-center justify-center  lg:justify-start">
-                <img
-                  src={deliveryIcon}
-                  alt=""
+                <Icon
+                  type="airplane"
                   className="inline-block mr-1 h-5 w-auto select-none"
                 />
                 <span>DELIVERY</span>
@@ -118,9 +110,8 @@ export default function Basket() {
             </div>
             <div className="mb-8 w-3/4 mx-auto text-center lg:text-left">
               <h4 className="mb-1 font-bold flex items-center justify-center  lg:justify-start">
-                <img
-                  src={securePaymentIcon}
-                  alt=""
+                <Icon
+                  type="shield"
                   className="inline-block mr-1 h-5 w-auto select-none"
                 />
                 <span>SECURE PAYMENT</span>
@@ -174,14 +165,8 @@ function BasketItem({ id, className }: BaksetItemProps) {
         'flex flex-col shadow-md p-4 rounded-md bg-primary-200' + className
       }
     >
-      <button onClick={() => removeItem(id)} className="ml-auto mb-4">
-        <img
-          src={closeIcon}
-          width="16"
-          height="16"
-          alt=""
-          className="select-none"
-        />
+      <button onClick={() => removeItem(id)} className="ml-auto mb-2">
+        <Icon type="close" className="w-8 h-8 select-none" />
       </button>
       <div className="flex gap-6 flex-col sm:flex-row">
         <div className="shrink-0 bg-primary-300 w-full sm:w-5/12 md:max-w-md">

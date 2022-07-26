@@ -24,6 +24,9 @@ html::-webkit-scrollbar-thumb:hover {
   @apply bg-primary-600;
 }
 
+svg {
+  @apply text-secondary-800;
+}
 
 @layer components {
   .filter-white {

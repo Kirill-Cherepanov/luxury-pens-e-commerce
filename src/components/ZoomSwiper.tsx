@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, A11y, Zoom } from 'swiper';
 
-import closeIcon from '../icons/close.svg';
+import Icon from './Icon';
+
 import 'swiper/css';
 import 'swiper/css/bundle';
 import 'swiper/css/a11y';
@@ -39,13 +40,7 @@ export default function ZoomSwiper({
           className="absolute z-40 right-4 top-4"
           onClick={closeFullScreen}
         >
-          <img
-            src={closeIcon}
-            width="24"
-            height="24"
-            alt=""
-            className="select-none"
-          />
+          <Icon type="close" className="w-10 h-10 select-none" />
         </button>
         {window.innerWidth < 640 ? (
           <Swiper
