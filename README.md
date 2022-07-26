@@ -1,6 +1,6 @@
 # An E-Commerce website for selling pens
 
-Deploy: https://kissmyussr.github.io/luxury-pens-e-commerce/Store/
+Deploy: https://kissmyussr.github.io/luxury-pens-e-commerce/
 
 TODO:
 
