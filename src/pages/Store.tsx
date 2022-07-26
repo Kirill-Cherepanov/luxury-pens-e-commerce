@@ -23,7 +23,7 @@ type StoreItemProps = {
   name: string;
   price: number;
   desc: string;
-  paths: string[];
+  paths: { highQuality: string[]; lowQuality: string[] };
 };
 
 function StoreItem({ id, name, price, desc, paths }: StoreItemProps) {
@@ -36,7 +36,7 @@ function StoreItem({ id, name, price, desc, paths }: StoreItemProps) {
   return (
     <li className="bg-white rounded-md shadow-md">
       <img
-        src={paths[0]}
+        src={paths.lowQuality[0]}
         alt={name}
         className="rounded-t-md bg-primary-200 h-48 w-full object-cover transition-all duration-300 hover:bg-primary-300 cursor-pointer"
         onClick={openPreview}

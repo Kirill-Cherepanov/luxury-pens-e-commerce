@@ -9,4 +9,5 @@ TODO:
 3. Add a favicon ✅
 4. Add an empty Basket page ✅
 5. Add Home and About pages ✅
-6. Crop images
+6. Resize images ✅
+7. Add full screen to preview

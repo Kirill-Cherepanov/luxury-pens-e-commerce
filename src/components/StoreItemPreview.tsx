@@ -15,7 +15,7 @@ type StoreItemPreviewProps = {
   id: number;
   name: string;
   price: number;
-  paths: string[];
+  paths: { highQuality: string[]; lowQuality: string[] };
   desc: string;
   closeMenu: () => void;
 };
@@ -67,7 +67,7 @@ export default function StoreItemPreview({
                 onSlideChange={(e) => setCurrentSlide(e.realIndex)}
                 className="h-full"
               >
-                {paths.map((path, index) => {
+                {paths.lowQuality.map((path, index) => {
                   const Image = swipeOnClickWrapper(
                     <img
                       src={path}
@@ -93,7 +93,7 @@ export default function StoreItemPreview({
             </div>
             <div className="max-h-[320px] w-full">
               <img
-                src={paths[currentSlide]}
+                src={paths.lowQuality[currentSlide]}
                 alt={name}
                 className="max-h-[320px] w-full object-contain select-none"
               />
@@ -111,7 +111,7 @@ export default function StoreItemPreview({
             loop={true}
             className="max-h-[320px] lg:hidden"
           >
-            {paths.map((path, index) => (
+            {paths.lowQuality.map((path, index) => (
               <SwiperSlide key={index}>
                 <img
                   src={path}

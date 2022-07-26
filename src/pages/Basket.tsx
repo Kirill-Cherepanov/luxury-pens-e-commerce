@@ -186,7 +186,7 @@ function BasketItem({ id, className }: BaksetItemProps) {
       <div className="flex gap-6 flex-col sm:flex-row">
         <div className="shrink-0 bg-primary-300 w-full sm:w-5/12 md:max-w-md">
           <img
-            src={item.paths[1]}
+            src={item.paths.lowQuality[1]}
             alt={item.name}
             className="w-full object-cover h-[30vw] sm:h-[20vw] md:h-32 md:max-w-md"
           />

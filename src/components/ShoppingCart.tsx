@@ -95,7 +95,7 @@ function CartItem({ id, quantity }: CartItemProps) {
     <li className="border-b border-opacity-50 border-b-primary-400 last-of-type:border-b-0">
       <div className="pr-1 pl-3 py-4 flex flex-col">
         <img
-          src={item.paths[0]}
+          src={item.paths.lowQuality[0]}
           alt={item.name}
           className="h-20 w-full object-cover"
         />

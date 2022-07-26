@@ -1,13 +1,19 @@
 const DEPLOY_HOMEPAGE = 'https://KissMyUSSR.github.io/luxury-pens-e-commerce/';
+const BUILD_HOMEPAGE = '/luxury-pens-e-commerce/';
 
-const homepage = DEPLOY_HOMEPAGE;
+const homepage = BUILD_HOMEPAGE;
 
 const getProps = (year: string, type: string) => {
   return {
     name: `YEAR OF THE ${year.toUpperCase()} ${type} Pen`,
-    paths: [1, 2, 3, 4].map((n) => {
-      return `${homepage}images/YEAR OF THE ${year.toUpperCase()} ${type} Pen Limited Edition/${n}.png`;
-    })
+    paths: {
+      highQuality: [1, 2, 3, 4].map((n) => {
+        return `${homepage}images/high-quality/YEAR OF THE ${year.toUpperCase()} ${type} Pen Limited Edition/${n}.png`;
+      }),
+      lowQuality: [1, 2, 3, 4].map((n) => {
+        return `${homepage}images/low-quality/YEAR OF THE ${year.toUpperCase()} ${type} Pen Limited Edition/${n}.png`;
+      })
+    }
   };
 };
 
