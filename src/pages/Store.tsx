@@ -43,9 +43,9 @@ function StoreItem({ id, name, price, desc, paths }: StoreItemProps) {
       />
       <div className="p-4 flex flex-col h-40 xs:h-36 sm:h-44">
         <div className="flex justify-between">
-          <h4 onClick={openPreview} className="cursor-pointer font-bold mr-4">
+          <h2 onClick={openPreview} className="cursor-pointer font-bold mr-4">
             {name}
-          </h4>
+          </h2>
           <span
             onClick={openPreview}
             className="flex justify-center items-center cursor-pointer"

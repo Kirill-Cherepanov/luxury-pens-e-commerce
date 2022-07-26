@@ -11,3 +11,4 @@ TODO:
 5. Add Home and About pages ✅
 6. Resize images ✅
 7. Add full screen to preview
+8. Create a component with all svgs
