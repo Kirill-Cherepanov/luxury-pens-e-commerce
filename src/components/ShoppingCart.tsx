@@ -39,7 +39,10 @@ export default function ShoppingCart() {
       ) : (
         <>
           <div className="flex h-16 p-3 py-5 bg-primary-400">
-            <button onClick={clearCart} className="uppercase font-bold">
+            <button
+              onClick={clearCart}
+              className="uppercase font-bold relative hover:after:w-12 after:content-[' '] after:absolute after:bottom-0 after:left-0 after:w-0 after:border-b-2 after:border-b-secondary-800 after:transition-all after:duration-200"
+            >
               Clear
             </button>
             <button
@@ -64,8 +67,8 @@ export default function ShoppingCart() {
             </div>
             <div className="block md:hidden text-center mt-4 w-full">
               <NavLink
-                to="/Basket"
-                className="block text-lg font-medium bg-primary-700 text-secondary-50-50 py-1 w-full rounded-md "
+                to="/luxury-pens-e-commerce/Basket"
+                className="block text-lg font-medium border-2 py-1 w-full rounded-md transition-all duration-200 border-primary-600 hover:bg-primary-600 hover:text-secondary-50 hover:tracking-wide"
               >
                 Checkout
               </NavLink>
@@ -103,7 +106,7 @@ function CartItem({ id, quantity }: CartItemProps) {
         <div className="flex justify-center">
           <button
             onClick={() => setIsPreviewOpen(true)}
-            className="text-left uppercase font-medium basis-1/2"
+            className="text-left uppercase font-medium basis-1/2 relative hover:after:w-10 after:content-[' '] after:absolute after:bottom-0 after:left-0 after:w-0 after:border-b-2 after:border-b-secondary-800 after:transition-all after:duration-200"
           >
             View
           </button>
@@ -113,7 +116,7 @@ function CartItem({ id, quantity }: CartItemProps) {
           />
           <button
             onClick={() => removeItem(item.id)}
-            className="text-right uppercase font-medium basis-1/2"
+            className="text-right uppercase font-medium basis-1/2 relative hover:after:w-16 after:content-[' '] after:absolute after:bottom-0 after:right-0 after:w-0 after:border-b-2 after:border-b-secondary-800 after:transition-all after:duration-200"
           >
             Remove
           </button>

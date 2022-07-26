@@ -42,7 +42,13 @@ export default function StoreItemPreview({
     >
       <div className="preview-scrollbar flex flex-col min-w-[20rem] w-1/2 max-w-xl h-5/6 bg-primary-200 p-4 shadow-md overflow-y-scroll">
         <button onClick={closeMenu} className="ml-auto mb-4">
-          <img src={closeIcon} width="16" height="16" alt="" />
+          <img
+            src={closeIcon}
+            width="16"
+            height="16"
+            alt=""
+            className="select-none"
+          />
         </button>
         <div className="GALLERY max-h-[320px] bg-primary-300 rounded-lg">
           <div className="hidden lg:flex">
@@ -50,7 +56,7 @@ export default function StoreItemPreview({
               <Swiper
                 style={
                   {
-                    '--swiper-theme-color': 'rgb(100 116 139)'
+                    '--swiper-theme-color': '#78716c'
                   } as React.CSSProperties
                 }
                 slidesPerView={3}
@@ -68,7 +74,7 @@ export default function StoreItemPreview({
                       alt={name + ' ' + index}
                       onClick={() => {}}
                       className={
-                        'cursor-pointer h-full w-full object-contain select-none transition-colors bg-primary-500 hover:bg-primary-500' +
+                        'cursor-pointer h-full w-full object-contain select-none transition-colors duration-200 bg-primary-500 hover:bg-primary-500' +
                         (index !== currentSlide
                           ? ' bg-transparent hover:bg-primary-400'
                           : '')
@@ -96,7 +102,7 @@ export default function StoreItemPreview({
           <Swiper
             style={
               {
-                '--swiper-theme-color': 'rgb(100 116 139)'
+                '--swiper-theme-color': '#78716c'
               } as React.CSSProperties
             }
             modules={[Navigation, Pagination, A11y]}
@@ -125,7 +131,7 @@ export default function StoreItemPreview({
             <ItemButtons
               id={id}
               type="add"
-              className="w-full py-2 transition-all rounded-md bg-primary-400 hover:bg-primary-500"
+              className="w-full py-2 transition-colors duration-200 rounded-md bg-primary-400 hover:bg-primary-600 hover:text-primary-200"
             />
           ) : (
             <ItemButtons id={id} className="mx-auto" />

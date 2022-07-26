@@ -39,22 +39,32 @@ export default function ItemButtons({
   return (
     <div
       className={
-        'border-2 border-primary-700 flex gap-1 justify-center items-center text-lg font-medium h-10 w-32 rounded-full ' +
+        'flex justify-center items-center text-lg font-medium h-10 w-32 ' +
         className
       }
     >
-      <button onClick={() => decreaseItemQuantity(id)}>
+      <button
+        onClick={() => decreaseItemQuantity(id)}
+        className="group grow-1 basis-1/2 h-full transition-colors duration-200 hover:bg-primary-600 border-y-2 border-l-2 border-primary-600 rounded-l-full"
+      >
         <img
           src={minusIcon}
           alt="decrease"
-          className="w-auto h-6 select-none"
+          className="mx-auto w-auto h-6 select-none transition-all duration-200 group-hover:filter-white"
         />
       </button>
-      <span className="inline-block w-8 text-center">
+      <span className="flex justify-center items-center basis-6 text-center h-full border-y-2 border-primary-600">
         {getItemQuantity(id)}
       </span>
-      <button onClick={() => increaseItemQuantity(id)}>
-        <img src={plusIcon} alt="increase" className="w-auto h-6" />
+      <button
+        onClick={() => increaseItemQuantity(id)}
+        className="group grow-1 basis-1/2 h-full transition-colors duration-200 hover:bg-primary-600 border-y-2 border-r-2 border-primary-600 rounded-r-full"
+      >
+        <img
+          src={plusIcon}
+          alt="increase"
+          className="mx-auto w-auto h-6 select-none transition-all duration-200 group-hover:filter-white"
+        />
       </button>
     </div>
   );

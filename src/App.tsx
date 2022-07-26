@@ -12,10 +12,10 @@ function App() {
       <div className="preview-scroll bg-primary-100 text-secondary-800">
         <NavBar />
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/Store" element={<Store />} />
-          <Route path="/About" element={<About />} />
-          <Route path="/Basket" element={<Basket />} />
+          <Route path="/luxury-pens-e-commerce/" element={<Home />} />
+          <Route path="/luxury-pens-e-commerce/Store" element={<Store />} />
+          <Route path="/luxury-pens-e-commerce/About" element={<About />} />
+          <Route path="/luxury-pens-e-commerce/Basket" element={<Basket />} />
         </Routes>
       </div>
     </ShoppingCartProvider>

@@ -4,6 +4,10 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  @apply h-screen;
+}
+
 html::-webkit-scrollbar {
   @apply w-3;
 }
@@ -22,6 +26,10 @@ html::-webkit-scrollbar-thumb:hover {
 
 
 @layer components {
+  .filter-white {
+    filter: invert(100%) sepia(0%) saturate(7461%) hue-rotate(45deg) brightness(112%) contrast(115%);
+  }
+
   .hamburger-menu-btn {
     width: 32px;
     height: 30px;

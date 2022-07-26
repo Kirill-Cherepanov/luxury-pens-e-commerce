@@ -65,7 +65,7 @@ function StoreItem({ id, name, price, desc, paths }: StoreItemProps) {
               <ItemButtons
                 id={id}
                 type="remove"
-                className="uppercase font-bold"
+                className="uppercase font-bold relative hover:after:w-9 after:content-[' '] after:absolute after:bottom-0 after:left-1/2 after:w-0 after:border-b-2 after:border-b-secondary-800 after:transition-all after:duration-200 hover:before:w-9 before:content-[' '] before:absolute before:bottom-0 before:right-1/2 before:w-0 before:border-b-2 before:border-b-secondary-800 before:transition-all before:duration-200"
               />
               <ItemButtons id={id} />
             </div>

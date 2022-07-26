@@ -1,11 +1,12 @@
 # An E-Commerce website for selling pens
 
-Deploy: https://kissmyussr.github.io/luxury-pens-e-commerce/
+Deploy: https://kissmyussr.github.io/luxury-pens-e-commerce/Store/
 
 TODO:
 
-1. Change a color theme
-2. Add a favicon
-3. Add an empty Basket page
-4. Crop images
-5. Add Home and About pages (though it's unlikely)
+1. Add (hover, etc.) effects ✅
+2. Change a color theme ✅
+3. Add a favicon ✅
+4. Add an empty Basket page ✅
+5. Add Home and About pages ✅
+6. Crop images
