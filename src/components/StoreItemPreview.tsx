@@ -9,7 +9,10 @@ import { Navigation, Pagination, A11y } from 'swiper';
 import { formatCurrency } from '../utilities/formatCurrency';
 import closeIcon from '../icons/close.svg';
 import fullscreenIcon from '../icons/fullscreen.svg';
-import 'swiper/css/bundle';
+import 'swiper/css';
+import 'swiper/css/a11y';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 
 type StoreItemPreviewProps = {
   id: number;
@@ -44,9 +47,9 @@ export default function StoreItemPreview({
       {fullscreenImage !== null && (
         <ZoomSwiper
           closeFullScreen={() => setFullscreenImage(null)}
-          oldPaths={paths.highQuality}
+          paths={paths.highQuality}
           name={name}
-          startWith={0}
+          startWith={fullscreenImage}
         />
       )}
       <div className="preview-scrollbar flex flex-col min-w-[20rem] w-1/2 max-w-xl h-5/6 bg-primary-200 p-4 shadow-md overflow-y-scroll">
@@ -81,7 +84,6 @@ export default function StoreItemPreview({
                     <img
                       src={path}
                       alt={name + ' ' + index}
-                      onClick={() => {}}
                       className={
                         'cursor-pointer h-full w-full object-contain select-none transition-colors duration-200 bg-primary-500 hover:bg-primary-500' +
                         (index !== currentSlide
@@ -91,7 +93,6 @@ export default function StoreItemPreview({
                     />,
                     index
                   );
-
                   return (
                     <SwiperSlide key={path}>
                       <Image />
@@ -118,14 +119,39 @@ export default function StoreItemPreview({
               </button>
             </div>
           </div>
-          <MobileSwiper
-            paths={paths.lowQuality}
-            name={name}
-            swiperClassName="MOBILE_SWIPER max-h-[320px] lg:hidden"
-            imgProps={{
-              className: 'select-none max-h-[320px] w-full object-contain'
-            }}
-          />
+          <Swiper
+            className="MOBILE_SWIPER max-h-[320px] lg:hidden"
+            style={
+              {
+                '--swiper-theme-color': '#78716c'
+              } as React.CSSProperties
+            }
+            modules={[Navigation, Pagination, A11y]}
+            navigation={true}
+            pagination={{ clickable: false, dynamicBullets: true }}
+            loop={true}
+          >
+            {paths.lowQuality.map((path, index) => (
+              <SwiperSlide
+                key={path}
+                className="relative"
+                onClick={() => setFullscreenImage(index)}
+              >
+                <img
+                  src={path}
+                  alt={name}
+                  className="cursor-pointer select-none max-h-[320px] w-full object-contain"
+                />
+                <button aria-label="Fullscreen">
+                  <img
+                    src={fullscreenIcon}
+                    alt="Fullscreen"
+                    className="select-none h-10 w-auto absolute right-2 top-2 transition-transform hover:scale-125"
+                  />
+                </button>
+              </SwiperSlide>
+            ))}
+          </Swiper>
         </div>
         <div className="py-4 flex flex-col justify-between items-center lg:flex-row">
           <div className="font-bold text-lg">{name}</div>
@@ -148,42 +174,6 @@ export default function StoreItemPreview({
     document.getElementById('pop-up')!
   );
 }
-
-type MobileSwiperProps = {
-  paths: string[];
-  name: string;
-  swiperClassName?: string;
-  imgProps?: Object;
-  startWith?: number;
-};
-
-const MobileSwiper = ({
-  paths,
-  name,
-  swiperClassName = '',
-  imgProps = {}
-}: MobileSwiperProps) => {
-  return (
-    <Swiper
-      className={swiperClassName}
-      style={
-        {
-          '--swiper-theme-color': '#78716c'
-        } as React.CSSProperties
-      }
-      modules={[Navigation, Pagination, A11y]}
-      navigation={true}
-      pagination={{ clickable: false, dynamicBullets: true }}
-      loop={true}
-    >
-      {paths.map((path) => (
-        <SwiperSlide key={path}>
-          <img src={path} alt={name} {...imgProps} />
-        </SwiperSlide>
-      ))}
-    </Swiper>
-  );
-};
 
 const swipeOnClickWrapper = (Child: JSX.Element, index: number) => {
   return (props: JSX.IntrinsicAttributes) => {
