@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, A11y, Zoom } from 'swiper';
 
+import isMobile from '../utilities/isMobile';
 import Icon from './Icon';
 
 import 'swiper/css';
@@ -42,7 +43,7 @@ export default function ZoomSwiper({
         >
           <Icon type="close" className="w-10 h-10 select-none" />
         </button>
-        {window.innerWidth < 640 ? (
+        {isMobile() ? (
           <Swiper
             className="MOBILE_SWIPER bg-primary-300 h-full w-full"
             style={
