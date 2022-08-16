@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, A11y, Zoom } from 'swiper';
+import { Swiper as SwiperEvent } from 'swiper/types';
 
 import isMobile from '../utilities/isMobile';
 import Icon from './Icon';
@@ -17,6 +18,7 @@ type ZoomSwiperProps = {
   paths: string[];
   name: string;
   startWith?: number;
+  slideChangeHadler?: (e: SwiperEvent) => unknown;
 };
 
 type Position = { x: number; y: number };
@@ -25,7 +27,8 @@ export default function ZoomSwiper({
   closeFullScreen,
   paths,
   name,
-  startWith = 0
+  startWith = 0,
+  slideChangeHadler
 }: ZoomSwiperProps) {
   const [zoomedPos, setZoomedPos] = useState<Position>({
     x: 0,
@@ -52,11 +55,14 @@ export default function ZoomSwiper({
               } as React.CSSProperties
             }
             modules={[Zoom, Navigation, Pagination, A11y]}
-            navigation={true}
+            navigation={{
+              disabledClass: 'invisible'
+            }}
             pagination={{ clickable: false, dynamicBullets: true }}
             zoom={true}
             loop={true}
             initialSlide={startWith}
+            onSlideChange={slideChangeHadler}
           >
             {paths.map((path) => (
               <SwiperSlide key={path}>
@@ -79,9 +85,13 @@ export default function ZoomSwiper({
               } as React.CSSProperties
             }
             modules={[Navigation, Pagination, A11y]}
-            navigation={true}
+            navigation={{
+              disabledClass: 'invisible'
+            }}
+            loop={true}
             pagination={{ clickable: false, dynamicBullets: true }}
             initialSlide={startWith}
+            onSlideChange={slideChangeHadler}
           >
             {paths.map((path) => (
               <SwiperSlide key={path}>

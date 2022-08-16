@@ -5,6 +5,7 @@ import React, { useState } from 'react';
 import { createPortal } from 'react-dom';
 import { Swiper, SwiperSlide, useSwiper } from 'swiper/react';
 import { Navigation, Pagination, A11y } from 'swiper';
+import { Swiper as SwiperEvent } from 'swiper/types';
 
 import { formatCurrency } from '../utilities/formatCurrency';
 import Icon from './Icon';
@@ -31,7 +32,7 @@ export default function StoreItemPreview({
   desc,
   closeMenu
 }: StoreItemPreviewProps) {
-  const [fullscreenImage, setFullscreenImage] = useState<null | number>(null);
+  const [isFullScreen, setIsFullScreen] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
   const { getItemQuantity } = useShoppingCart();
   const quantity = getItemQuantity(id);
@@ -44,12 +45,13 @@ export default function StoreItemPreview({
       }}
       className="flex backdrop-blur-sm bg-opacity-60 bg-white justify-center items-center fixed top-0 w-full h-full z-20"
     >
-      {fullscreenImage !== null && (
+      {isFullScreen && (
         <ZoomSwiper
-          closeFullScreen={() => setFullscreenImage(null)}
+          closeFullScreen={() => setIsFullScreen(false)}
           paths={paths.highQuality}
           name={name}
-          startWith={fullscreenImage}
+          startWith={currentSlide}
+          slideChangeHadler={(e: SwiperEvent) => setCurrentSlide(e.realIndex)}
         />
       )}
       <div className="preview-scrollbar flex flex-col min-w-[20rem] w-1/2 max-w-xl h-5/6 bg-primary-200 p-4 shadow-md overflow-y-scroll">
@@ -103,7 +105,7 @@ export default function StoreItemPreview({
               />
               <button
                 aria-label="Fullscreen"
-                onClick={() => setFullscreenImage(currentSlide)}
+                onClick={() => setIsFullScreen(true)}
               >
                 <Icon
                   type="fullscreen"
@@ -119,23 +121,23 @@ export default function StoreItemPreview({
                 '--swiper-theme-color': '#78716c'
               } as React.CSSProperties
             }
+            onSlideChange={(e) => setCurrentSlide(e.realIndex)}
             modules={[Navigation, Pagination, A11y]}
             navigation={true}
             pagination={{ clickable: false, dynamicBullets: true }}
             loop={true}
           >
             {paths.lowQuality.map((path, index) => (
-              <SwiperSlide
-                key={path}
-                className="relative"
-                onClick={() => setFullscreenImage(index)}
-              >
+              <SwiperSlide key={path} className="relative">
                 <img
                   src={path}
                   alt={name}
                   className="cursor-pointer select-none max-h-[320px] w-full object-contain"
                 />
-                <button aria-label="Fullscreen">
+                <button
+                  aria-label="Fullscreen"
+                  onClick={() => setIsFullScreen(true)}
+                >
                   <Icon
                     type="fullscreen"
                     className="select-none h-10 w-auto absolute right-2 top-2 transition-transform hover:scale-125"
