@@ -1,6 +1,6 @@
 # An E-Commerce website for selling pens
 
-Deploy: https://kissmyussr.github.io/luxury-pens-e-commerce/
+Deploy: https://kirill-cherepanov.github.io/luxury-pens-e-commerce/
 
 It was quite a while ago, the last time I used typescript. So I decided to do something simple but meaningful at the same time (too small projects are meaningless to do with ts imo). I also only recently started stydying UI design (I'm so bad at it) and at the same time wanted to try out tailwind. So something like an E-Commerce website was perfect for the task.
 
