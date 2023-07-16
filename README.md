@@ -1,11 +1,15 @@
-# An E-Commerce website for selling pens
+# Luxury Pens E-Commerce Website
 
-Deploy: https://kirill-cherepanov.github.io/luxury-pens-e-commerce/
+[![Website Deployment](https://img.shields.io/badge/Deploy-View%20Website-blue)](https://kirill-cherepanov.github.io/luxury-pens-e-commerce/)
 
-It was quite a while ago, the last time I used typescript. So I decided to do something simple but meaningful at the same time (too small projects are meaningless to do with ts imo). I also only recently started stydying UI design (I'm so bad at it) and at the same time wanted to try out tailwind. So something like an E-Commerce website was perfect for the task.
+An E-Commerce website created to showcase and sell luxury pens, serving as a meaningful project to practice using Typescript and explore Tailwind for simplified styles.
 
-It was a good experience. I found that I very much like using both tailwind, it makes writing styles so much easier. Also typescript saves your a\*\* when you are half-asleep late at night writing code.
+![Preview](https://github.com/Kirill-Cherepanov/luxury-pens-e-commerce/assets/52123816/24ed10c6-7f93-4dfa-8e2b-0c2a2163090b)
 
-I don't plan to write Home and About pages. It would require some heavy lifting to write texts and make designs for them. So I'll pass.
+This project allowed me to dive back into Typescript after a while, and the experience was fantastic, especially when combined with Tailwind, which significantly streamlined the styling process. It also provided a valuable opportunity to explore UI design, an area I'm still learning and improving.
 
-So, yeah, there is nothing much to tell about. A pretty simple project to test my skills, that's it.
+Throughout this journey, I realized how Typescript comes to the rescue, even during late-night coding sessions when my concentration is waning.
+
+While this website focuses on luxury pens, please note that I don't plan to develop Home and About pages as crafting content and designs for them would require considerable effort.
+
+In conclusion, this project represents a simple yet meaningful endeavor to test and enhance my skills, incorporating the power of Typescript and the convenience of Tailwind CSS.
