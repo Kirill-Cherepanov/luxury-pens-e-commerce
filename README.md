@@ -1,5 +1,7 @@
 # Luxury Pens E-Commerce Website
 
+*Admittedly I was too lazy to finish the project, since I came to dislike it halfway through. That's why home and about pages are still in development. Please navigate to /store after visiting the site. It along with /basket work as intended*
+
 [![Website Deployment](https://img.shields.io/badge/Deploy-View%20Website-blue)](https://kirill-cherepanov.github.io/luxury-pens-e-commerce/)
 
 An E-Commerce website created to showcase and sell luxury pens, serving as a meaningful project to practice using Typescript and explore Tailwind for simplified styles.
